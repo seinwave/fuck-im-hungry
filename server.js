@@ -12,11 +12,16 @@ app.use( (req, res, next) => {
     next();
 })
 
+const tq = require('./controllers/text-query')
 
 const PORT = process.env.PORT || 3001;
 
 app.get('/', (req,res) => {
     res.send({"Borpis": "Alive"});
+})
+
+app.post('/api/df_text_query', (req,res) => {
+    tq.textQuery(req,res);
 })
 
 app.listen(PORT, () => {
