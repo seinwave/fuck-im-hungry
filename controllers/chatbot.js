@@ -14,8 +14,8 @@ const credentials = {
 
 const sessionClient = new df.SessionsClient({projectID, credentials})
 
-const textQuery = async (text, userID, parameters = {}) => {
-    let sessionPath = sessionClient.sessionPath(projectID, sessionID + userID);
+const textQuery = async (text, parameters = {}) => {
+    let sessionPath = sessionClient.sessionPath(projectID, sessionID);
 
     const request = {
         session: sessionPath,
@@ -33,7 +33,10 @@ const textQuery = async (text, userID, parameters = {}) => {
     };
 
     let responses = await sessionClient
-        .detectIntent(request);
+        .detectIntent(request)
+        .catch((error) => {
+            console.log(error)
+        })
     
     return responses
 
