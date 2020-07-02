@@ -44,7 +44,7 @@ class Chatbot extends Component {
         
         this.setState({messages: [...this.state.messages, says]})
         try {
-            const res = await axios.post('/api/df_text_query', 
+            const res = await axios.post('http://localhost:3001/api/df_text_query', 
                 {text, userID: cookies.get('userID')})
 
                 console.log(res.data)
@@ -75,7 +75,7 @@ class Chatbot extends Component {
     async df_event_query(event) {
 
         //this.setState({messages: [...this.state.messages, says]})
-        const res = await axios.post('/api/df_event_query', 
+        const res = await axios.post('http://localhost:3001/api/df_event_query', 
             {event, userID: cookies.get('userID')});
 
         console.log(res);
@@ -158,9 +158,6 @@ class Chatbot extends Component {
         }
     }
 
-    renderCards(cards){
-        return cards.map((card, i) => <Card key={i} payload ={card.structValue}/>)
-    }
 
     renderOneMessage(message, i) {
         if (message.msg && message.msg.text && message.msg.text.text){
@@ -170,38 +167,6 @@ class Chatbot extends Component {
                 key = {i} />
         }
         
-        else if (message.msg &&
-            message.msg.payload &&
-            message.msg.payload.fields &&
-            message.msg.payload.fields.quick_replies) {
-                return <QuickRepliesContainer
-                    text = {message.msg.payload.fields.text ? message.msg.payload.fields.text : null}
-                    key = {i}
-                    replyClick = {this.handleQuickReplyPayload}
-                    speaker = {message.speaker}
-                    payload = {message.msg.payload.fields.quick_replies.listValue.values} />;
-            }
-        
-        else if (message.msg && message.msg.payload 
-            && message.msg.payload.fields && message.msg.payload.fields.cards) {
-            return <div key = {i}>
-                <div className = "card-panel grey lighten-5 z-depth-1">
-                    <div style = {{overflow: "hidden"}}>
-                        <div className = "col s2">
-                            <a href = "/" className = 
-                            "btn-floating bt-large waves-effect waves-light red">
-                                {message.speaker}
-                            </a>
-                        </div>
-                        <div style = {{overflow: "auto", overflowY: 'scroll'}}>
-                            <div style = {{height: 300, width: 270*message.msg.payload.fields.cards.listValue.values.length}}>
-                                    {this.renderCards(message.msg.payload.fields.cards.listValue.values)}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
     }
 
     renderMessages(stateMessages) {
@@ -220,45 +185,29 @@ class Chatbot extends Component {
     
     if (this.state.showBot){
     return (
-    <div style = {{ height: 500, width: 400, padding: '1rem', position: 'absolute', bottom: 0, right: 0, border: '1px, solid, lightgray'}}>
+    <div className = "chatbot-container">
             <nav>
-                <div className="nav-wrapper">
-                    <a href = "/" className = "brand-logo"> Wayne Newton bot</a>
-                    <ul id = "nav-mobile" className = "right hide-on-med-and-down">
+                <div>
+                    <a href = "/" className = "brand-logo"> Fuck I'm Hungry</a>
+                    <ul id = "nav-mobile" className = "bot-close">
                         <li><a href = "/" onClick = {this.hide}>X</a></li>
                     </ul>
                 </div>
             </nav>
-            <div id="chatbot" style = {{height: 388, maxHeight: 388, width: '100%', overflow: 'auto'}}>
+            <div id="chatbot">
                 {this.renderMessages(this.state.messages)}
                 <div ref = {(el) => {this.messagesEnd = el;}}
                     style = {{float: 'left', clear: "bottom"}}>
                 </div>
             </div>
         <div className = "col s12">
-            <input style = {{margin: 0, marginBottom: '2rem', paddingLeft: '1%', paddingRight: '1%', width: '98%'}}
+            <input
                 type = "text" onKeyPress = {this.handleInput}
                 placeholder = "Type a message" 
                 ref = {(el) => {this.inputElement = el;}} autofocus="true"/>
         </div>
     </div>
     )}
-    else {
-        return (
-            <div style = {{ height: 100, width: 400, padding: '1rem', position: 'absolute', bottom: 0, right: 0, border: '1px, solid, lightgray'}}>
-                <nav>
-                    <div className="nav-wrapper">
-                        <a href = "/" className = "brand-logo"> Wayne Newton bot</a>
-                        <ul id = "nav-mobile" className = "right hide-on-med-and-down">
-                        <li><a href = "/" onClick = {this.show}>Show</a></li>
-                    </ul>
-                    </div>
-                </nav>
-                    <div ref = {(el) => {this.messagesEnd = el;}}
-                        style = {{float: 'left', clear: "bottom"}}>
-                    </div>
-            </div>
-        )}
     }
 }
 
