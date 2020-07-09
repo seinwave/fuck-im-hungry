@@ -1,0 +1,4673 @@
+{
+    "friendlyName" : "fuck-im-hungry",
+    "logQueries" : true,
+    "uniqueName" : "fuck-im-hungry",
+    "defaults" : {
+        "defaults" : {
+            "assistant_initiation" : "task://Default-Welcome-Intent",
+            "fallback" : "task://Default-Fallback-Intent",
+            "collect" : {
+                "validate_on_failure" : "task://Default-Fallback-Intent"
+            }
+        }
+    },
+    "styleSheet" : {
+        "style_sheet" : {
+            "voice" : {
+                "say_voice" : "Polly.Salli"
+            }
+        }
+    },
+    "fieldTypes" : [
+        {
+            "uniqueName" : "temptation",
+            "values" : [
+                {
+                    "language" : "en-US",
+                    "value" : "cake",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "chocolate",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "candy",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "pizza",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "doughnuts",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "ice cream",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "chinese food",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "mcdonalds",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "taco bell",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "mexican",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "cheesecake",
+                    "synonymOf" : "cake"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "chocolate cake",
+                    "synonymOf" : "cake"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "peanut butter cake",
+                    "synonymOf" : "cake"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "sweets",
+                    "synonymOf" : "candy"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "sour patch kids",
+                    "synonymOf" : "candy"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "mike n ikes",
+                    "synonymOf" : "candy"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "butterfingers",
+                    "synonymOf" : "candy"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "snickers",
+                    "synonymOf" : "candy"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "twizzlers",
+                    "synonymOf" : "candy"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "dots",
+                    "synonymOf" : "candy"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "pizza pie",
+                    "synonymOf" : "pizza"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "donuts",
+                    "synonymOf" : "doughnuts"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "ice-cream",
+                    "synonymOf" : "ice cream"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "ben n jerrys",
+                    "synonymOf" : "ice cream"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "chinese",
+                    "synonymOf" : "chinese food"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "general tsos",
+                    "synonymOf" : "chinese food"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "big mac",
+                    "synonymOf" : "mcdonalds"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "mcnuggets",
+                    "synonymOf" : "mcdonalds"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "chalupa",
+                    "synonymOf" : "taco bell"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "gordita",
+                    "synonymOf" : "taco bell"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "feeling",
+            "values" : [
+                {
+                    "language" : "en-US",
+                    "value" : "tired",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "irritable",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "depressed",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "anxious",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "stressed",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "drained",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "sleepy",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "exhausted",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "worn-out",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "weary",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "sapped",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "fatigued",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "drowsy",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "enervated",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "knackered",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "shattered",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "pooped",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "dead on my feet",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "spent",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "wiped out",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "worn out",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "wiped",
+                    "synonymOf" : "tired"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "grumpy",
+                    "synonymOf" : "irritable"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "angry",
+                    "synonymOf" : "irritable"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "crabby",
+                    "synonymOf" : "irritable"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "irascible",
+                    "synonymOf" : "irritable"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "prickly",
+                    "synonymOf" : "irritable"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "testy",
+                    "synonymOf" : "irritable"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "touchy",
+                    "synonymOf" : "irritable"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "tempered",
+                    "synonymOf" : "irritable"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "resentful",
+                    "synonymOf" : "irritable"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "annoyed",
+                    "synonymOf" : "irritable"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "sad",
+                    "synonymOf" : "depressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "unhappy",
+                    "synonymOf" : "depressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "gloomy",
+                    "synonymOf" : "depressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "glum",
+                    "synonymOf" : "depressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "melancholy",
+                    "synonymOf" : "depressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "miserable",
+                    "synonymOf" : "depressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "downcast",
+                    "synonymOf" : "depressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "low",
+                    "synonymOf" : "depressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "low-spirited",
+                    "synonymOf" : "depressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "blue",
+                    "synonymOf" : "depressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "discouraged",
+                    "synonymOf" : "depressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "down",
+                    "synonymOf" : "depressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "worried",
+                    "synonymOf" : "anxious"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "fearful",
+                    "synonymOf" : "anxious"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "uneasy",
+                    "synonymOf" : "anxious"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "disturbed",
+                    "synonymOf" : "anxious"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "perturbed",
+                    "synonymOf" : "anxious"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "distressed",
+                    "synonymOf" : "anxious"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "nervous",
+                    "synonymOf" : "anxious"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "jittery",
+                    "synonymOf" : "anxious"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "disquieted",
+                    "synonymOf" : "anxious"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "disquiet",
+                    "synonymOf" : "anxious"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "frazzled",
+                    "synonymOf" : "stressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "strained",
+                    "synonymOf" : "stressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "tense",
+                    "synonymOf" : "stressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "freaked out",
+                    "synonymOf" : "stressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "burnt out",
+                    "synonymOf" : "stressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "buned out",
+                    "synonymOf" : "stressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "overloaded",
+                    "synonymOf" : "stressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "overwhelmed",
+                    "synonymOf" : "stressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "overtaxed",
+                    "synonymOf" : "stressed"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "stressed out",
+                    "synonymOf" : "stressed"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "distraction",
+            "values" : [
+                {
+                    "language" : "en-US",
+                    "value" : "Walking",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "Bathing",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "Video games",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "Watching TV",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "knitting",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "Reading",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "shower",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "Calling a friend",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "listening to music",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "Playing with pet",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "taking a walk",
+                    "synonymOf" : "Walking"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "going for a walk",
+                    "synonymOf" : "Walking"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "going on a walk",
+                    "synonymOf" : "Walking"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "walking around",
+                    "synonymOf" : "Walking"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "a walk",
+                    "synonymOf" : "Walking"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "power walking",
+                    "synonymOf" : "Walking"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "walking with music on",
+                    "synonymOf" : "Walking"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "taking a bath",
+                    "synonymOf" : "Bathing"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "a bubble bath",
+                    "synonymOf" : "Bathing"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "a long hot bath",
+                    "synonymOf" : "Bathing"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "a bath",
+                    "synonymOf" : "Bathing"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "soaking in the tub",
+                    "synonymOf" : "Bathing"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "gaming",
+                    "synonymOf" : "Video games"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "playing video games",
+                    "synonymOf" : "Video games"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "playing computer games",
+                    "synonymOf" : "Video games"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "TV",
+                    "synonymOf" : "Watching TV"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "streaming a show",
+                    "synonymOf" : "Watching TV"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "watching a show",
+                    "synonymOf" : "Watching TV"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "watching my show",
+                    "synonymOf" : "Watching TV"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "doing some knitting",
+                    "synonymOf" : "knitting"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "knitting something",
+                    "synonymOf" : "knitting"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "knitting a scarf",
+                    "synonymOf" : "knitting"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "knitting a blanket",
+                    "synonymOf" : "knitting"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "reading a book",
+                    "synonymOf" : "Reading"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "reading my book",
+                    "synonymOf" : "Reading"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "reading my magazine",
+                    "synonymOf" : "Reading"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "reading a magazine",
+                    "synonymOf" : "Reading"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "taking a shower",
+                    "synonymOf" : "shower"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "getting into the shower",
+                    "synonymOf" : "shower"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "showering",
+                    "synonymOf" : "shower"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "talking to my friend",
+                    "synonymOf" : "Calling a friend"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "chatting with a friend",
+                    "synonymOf" : "Calling a friend"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "chatting",
+                    "synonymOf" : "Calling a friend"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "talking",
+                    "synonymOf" : "Calling a friend"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "listening to an album",
+                    "synonymOf" : "listening to music"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "playing music",
+                    "synonymOf" : "listening to music"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "playing some music",
+                    "synonymOf" : "listening to music"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "Playing with my pet",
+                    "synonymOf" : "Playing with pet"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "playing with my dog",
+                    "synonymOf" : "Playing with pet"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "playing with my cat",
+                    "synonymOf" : "Playing with pet"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "playing with my fish",
+                    "synonymOf" : "Playing with pet"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "playing with my lizard",
+                    "synonymOf" : "Playing with pet"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "degree",
+            "values" : [
+                {
+                    "language" : "en-US",
+                    "value" : "mild",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "moderate",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "strong",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "extreme",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "no",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "one",
+                    "synonymOf" : "mild"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "two",
+                    "synonymOf" : "mild"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "three",
+                    "synonymOf" : "mild"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "1",
+                    "synonymOf" : "mild"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "2",
+                    "synonymOf" : "mild"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "3",
+                    "synonymOf" : "mild"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "four",
+                    "synonymOf" : "moderate"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "five",
+                    "synonymOf" : "moderate"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "six",
+                    "synonymOf" : "moderate"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "4",
+                    "synonymOf" : "moderate"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "5",
+                    "synonymOf" : "moderate"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "6",
+                    "synonymOf" : "moderate"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "seven",
+                    "synonymOf" : "strong"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "eight",
+                    "synonymOf" : "strong"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "7",
+                    "synonymOf" : "strong"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "8",
+                    "synonymOf" : "strong"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "nine",
+                    "synonymOf" : "extreme"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "ten",
+                    "synonymOf" : "extreme"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "9",
+                    "synonymOf" : "extreme"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "10",
+                    "synonymOf" : "extreme"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "0",
+                    "synonymOf" : "no"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "zero",
+                    "synonymOf" : "no"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "bodypart",
+            "values" : [
+                {
+                    "language" : "en-US",
+                    "value" : "ears",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "hands",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "arms",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "legs",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "feet",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "joints",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "nipples",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "nose",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "genitals",
+                    "synonymOf" : null
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "hand",
+                    "synonymOf" : "hands"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "finger",
+                    "synonymOf" : "hands"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "fingers",
+                    "synonymOf" : "hands"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "leg",
+                    "synonymOf" : "legs"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "toes",
+                    "synonymOf" : "feet"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "foot",
+                    "synonymOf" : "feet"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "elbows",
+                    "synonymOf" : "joints"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "knees",
+                    "synonymOf" : "joints"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "knuckles",
+                    "synonymOf" : "joints"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "nostrils",
+                    "synonymOf" : "nose"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "vagina",
+                    "synonymOf" : "genitals"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "penis",
+                    "synonymOf" : "genitals"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "balls",
+                    "synonymOf" : "genitals"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "ovaries",
+                    "synonymOf" : "genitals"
+                },
+                {
+                    "language" : "en-US",
+                    "value" : "labia",
+                    "synonymOf" : "genitals"
+                }
+            ]
+        }
+    ],
+    "tasks" : [
+        {
+            "uniqueName" : "surf-throat",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "The throat can be a real source of discomfort during a craving! A lot of people can't stop swallowing. Their throat might even ache. Definitely unpleasant."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "distraction",
+                    "fieldType" : "distraction"
+                },
+                {
+                    "uniqueName" : "temptation",
+                    "fieldType" : "temptation"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my throat"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "throat"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "esophagus"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my esophagus"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "front of my neck"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "back of my mouth"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "neck"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "trachea"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{temptation} {distraction}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "swallowing"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "surf-stomach",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Mm, yup. That happens to a lot of people, of course. Tummy rumblings. A sensation of emptiness. Even cramps! Not fun!"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "temptation",
+                    "fieldType" : "temptation"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "stomach"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my stomach"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my tummy"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "abdomen"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "tummy"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{temptation}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my {temptation}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my abdomen"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "around my {temptation}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "around my stomach"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "around my  abdomen"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "pit of my stomach"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "surf-prepared",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Great! Okay. For the next 10 minutes, try to just sit, and OBSERVE those physical and mental sensations you mentioned. (It will probably work best if you close your eyes)."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "color",
+                    "fieldType" : "Twilio.FIRST_NAME"
+                },
+                {
+                    "uniqueName" : "distraction",
+                    "fieldType" : "distraction"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm {distraction}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm prepared"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "okay"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yup"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yip"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{color}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yesh"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yeah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{distraction}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "prepared"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "surf-prepared-2",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Great. Close your eyes, relax, and observe your cravings. I'll be back with you in 10 minutes."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yeah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yip"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yup"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yesh"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ya"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ready"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "prepared"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm ready"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ready to go"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "y"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "surf-other",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Hmm. I haven't heard of people feeling the craving in their $bodypart before. But that doesn't mean your sensation isn't real! Cravings affect us all in a different way!"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "bodypart",
+                    "fieldType" : "bodypart"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{bodypart}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my {bodypart}"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "surf-muscles",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Mm, okay. Muscle-aches and fatigue can be pretty common. Anywhere on the body, really. But especially around the neck and shoulders."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "My muscles"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my body"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "muscles"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my whole body"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "body"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "shoulders and arms"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my neck"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "neck"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "back of my neck"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my back"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "back"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "surf-mouth",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Ah, classic. A lot of people feel the sensation most strongly in their mouth. They want to chomp on something. Or they can't stop salivating. Or maybe they can't stop grinding their teeth. It can be intense!"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "mouth"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my mouth"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "around my mouth"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my tongue"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "tongue"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "teeth"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "saliva"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "lips"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "in my mouth"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "on my tongue"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "back of my teeth"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my gums"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "surf-initialize",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Okay! Let's try \"surfing the urge.\""
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "temptation",
+                    "fieldType" : "temptation"
+                },
+                {
+                    "uniqueName" : "number",
+                    "fieldType" : "Twilio.NUMBER"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{number}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "give me {number}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i want {number}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{temptation}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "give me {temptation}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "let's {temptation}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i want to {temptation}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i want {temptation}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{temptation} please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{number} please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "give me {number} please"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "surf-head",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Mm, okay. That happens to some people — they get headaches (often just behind the eyes), or tension in their jaw."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "head"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my head"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the hea"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the head"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hed"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "behind my eyes"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my jaw"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "my jawjaw"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "jaw"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "around the eyes"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "surf-explained-already",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Alright! Surf's up!"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "color",
+                    "fieldType" : "Twilio.FIRST_NAME"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ready"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yup"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yip"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yep"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yeah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm ready"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yeah i'm ready"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes i'm ready"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yesh"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{color}"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "surf-explain-yes",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Okay. Let me explain what it means to \"surf the urge.\""
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "color",
+                    "fieldType" : "Twilio.FIRST_NAME"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "please explain"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "explain surfing"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "explain surfing the urge"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes please explain"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "explain"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "explain it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yeah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yah explain"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{color}"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "surf-emotion",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "I see. So sorry! It's never pleasant to feel so $feeling . But it IS perfectly normal for people with strong cravings to feel that way!"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "feeling",
+                    "fieldType" : "feeling"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm {feeling}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{feeling} and {feeling} and {feeling}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{feeling} and {feeling}"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "surf-dont-explain-ready",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Alright! Surf's up!"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "temptation",
+                    "fieldType" : "temptation"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "don't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "don't need"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no thanks"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no explaining"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nah i'm {temptation}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no thank you"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no please don't explain"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no explanation please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "don't bother explaining"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no need to explain"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i already know"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "don't explain"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "selftalk-initialize",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Great! Let's try some self-talk!"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "temptation",
+                    "fieldType" : "temptation"
+                },
+                {
+                    "uniqueName" : "number",
+                    "fieldType" : "Twilio.NUMBER"
+                },
+                {
+                    "uniqueName" : "distraction",
+                    "fieldType" : "distraction"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "self-talk sounds good"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "self"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "self-talk"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "practicing self-{distraction}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{number}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{distraction} about {number}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{number} sounds {temptation}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "pst"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "self {distraction}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "practicing self {distraction}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "practice self {distraction}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i want {number}"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "procon-writing",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Great! Get to it. I'll check back in with you in 5 minutes. Good luck!"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "color",
+                    "fieldType" : "Twilio.FIRST_NAME"
+                },
+                {
+                    "uniqueName" : "distraction",
+                    "fieldType" : "distraction"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm {distraction}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "start"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "let's start"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{distraction} to write"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "prepared"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{distraction}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "let's {distraction} {distraction}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "begin"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm {distraction} to begin"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "start please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "begin please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yeah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "of course"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yeh"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{color}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "absolutely"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "roger"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm good"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ja"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "let's {distraction}"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "procon-task-done",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Alright! You have your lists together! Thank you! Now let's take a look at it."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "distraction",
+                    "fieldType" : "distraction"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "done"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "finished"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "got my list"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "complete"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "wrapped up"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "list is {distraction}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "completed!"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "all done"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "all finished"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "procon-ready",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Excellent! This technique is really straightforward."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "distraction",
+                    "fieldType" : "distraction"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{distraction}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "finsihed"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "finished"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "done"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "all done"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm {distraction}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "got it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "got em"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{distraction} to {distraction}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "all finished"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "complete"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "procon-list-count-for",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "I see. That's okay. Sometimes it's easier to come up with reasons to indulge."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the for side"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "pro"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "for"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the pro side"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "for binge eating"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "pro binge eating"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "pro bingeing"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "for bingeing"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "for eating"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "pro eating"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "procon-list-count-for-persuasion-for",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "I see. Don't worry — that happens!"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "for"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the for list"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the for side"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "pro"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the pro list"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the pro side"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "pro eating"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "pro bingeing"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "for eating"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "for bingeing"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "procon-list-count-for-persuasion-against",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Ah, that's fantastic!"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "against"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the con side"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the against list"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the against side"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "against list"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the con list"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "against eating"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "against bingeing"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the negative side"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not eating"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not bingeing"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "procon-list-count-against",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Hey! That's great!"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "against has more"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the against side"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "against"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the against list has more"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the con side"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "con has more"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the con list has more"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the con list"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the against list"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "procon-list-count-against-pers-for",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "I see. The AGAINST side has more reasons, but the FOR side has BETTER reasons."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the for list"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "For"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the pro list"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "pro"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the pro side"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the for side"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "for eating"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "for bingeing"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "pro eating"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "pro bingeing"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "procon-list-count-against-pers-against",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Wow! Fantastic! You have more AND better reasons not to binge. That's very encouraging!"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "against"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the against side"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the con side"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the con list"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "the against list"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "con"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "against eating"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "against bingeing"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "con eating"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "con bingeing"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "procon-initialize",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Alright! Let's make a pro / con list."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "distraction",
+                    "fieldType" : "distraction"
+                },
+                {
+                    "uniqueName" : "temptation",
+                    "fieldType" : "temptation"
+                },
+                {
+                    "uniqueName" : "number",
+                    "fieldType" : "Twilio.NUMBER"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{number}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{number} sounds {temptation}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "give me {number}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "list pleace"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "list please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'll {temptation} a list"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'll take {number}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'll {distraction}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "pros and cons"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "pro / con list"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'll list pros and cons"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "pro con list"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "event-saver",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Thanks. I'll let $devangel_name know, and we'll get started!"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "devangel_name",
+                    "fieldType" : "Twilio.FIRST_NAME"
+                },
+                {
+                    "uniqueName" : "event_name",
+                    "fieldType" : "Twilio.FIRST_NAME"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Help me set up the event"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I'm setting up a new event"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "event set up please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "new event"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "there's a new event"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "help with my event"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "set up a new event"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "event coming up"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "there's an event"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "set up my event"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "event"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "what's the new event"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "here's the event"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "event please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "event event event"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "distractions_written",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : { "speech" : "Great work!" }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "finished"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "wrote them down"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "wrote them"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "written"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "got it done"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "all done"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "completed"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i did it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm ready"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ready"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "done"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "wrapped up"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm done"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm all finished"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "distraction_ready",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Excellent! Take a big sip of water, and we'll get started."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ready"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm done"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm ready"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "finished"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "done"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "all done"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "all finished"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "wrote them"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "got them"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "complete"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "it's done"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i did it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm all ready"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ready to go"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "distraction_chosen",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "$distraction sounds perfect! Great way to keep your attention off eating."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "distraction",
+                    "fieldType" : "distraction"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{distraction}"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "distraction_chosen-15-no5-no",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "That's okay. Maybe a distraction isn't the best thing for you right now. Do you want to try another technique?"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I'm not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no that's fine thank you"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not interested"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not today"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't want"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not really"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no way no"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "never"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no never"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not at all"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nothing else"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "definitely not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't want that"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no that's ok"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no thanks"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nothing else thanks"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not right now"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no that's be all"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "don't do it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no we are good"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no don't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not this time"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no maybe next time"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I disagree"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't think so"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "thanks but not this time"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nope"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nope not really"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no not really"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no that's okay"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nothing"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I can't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no I cannot"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nah I'm good"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "don't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no it isn't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "na"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no no don't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no way"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "thanks but no"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "distraction_chosen-yes",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Excellent. I'll leave you alone while you do it. I'll check back in with you in 15 minutes to see how you're doing."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "absolutely"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "confirm"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yep"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yup"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes I can"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "it looks perfect"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "right"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "alright"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "alright why not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "it's okay"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yeah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "it's fine"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "do it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "go ahead"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that's correct"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sounds good"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sounds correct"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sure"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes I agree"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I think so"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yep that's right"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "perfect"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sure why not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that works"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that one works"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't mind"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes you can do it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I agree"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes that't ok"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sg"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "for sure"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ok"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "okay"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yep that's ok"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "of course"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "exactly"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes I do"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes that's alright"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "why not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "okay I will"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "distraction_chosen-15-no",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "I see. That's okay! Making change is hard. What if you tried it for just FIVE minutes? Do you think you can do that?"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I'm not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no that's fine thank you"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not interested"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not today"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't want"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not really"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no way no"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "never"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no never"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not at all"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nothing else"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "definitely not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't want that"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no that's ok"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no thanks"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nothing else thanks"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not right now"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no that's be all"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "don't do it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no we are good"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no don't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not this time"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no maybe next time"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I disagree"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't think so"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "thanks but not this time"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nope"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nope not really"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no not really"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no that's okay"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nothing"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I can't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no I cannot"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nah I'm good"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "don't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no it isn't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "na"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no no don't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no way"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "thanks but no"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "distraction_chosen-15-no-5-no-Alternate-yes",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Okay, we'll try something else."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "absolutely"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "confirm"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yep"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yup"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes I can"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "it looks perfect"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "right"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "alright"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "alright why not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "it's okay"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yeah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "it's fine"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "do it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "go ahead"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that's correct"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sounds good"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sounds correct"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sure"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes I agree"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I think so"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yep that's right"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "perfect"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sure why not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that works"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that one works"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't mind"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes you can do it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I agree"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes that't ok"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sg"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "for sure"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ok"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "okay"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yep that's ok"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "of course"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "exactly"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes I do"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes that's alright"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "why not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "okay I will"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "distraction_chosen-15-no-5-no-Alternate-no",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Okay, no problem. Text me again if you want my help, okay?"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I'm not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no that's fine thank you"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not interested"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not today"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't want"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not really"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no way no"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "never"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no never"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not at all"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nothing else"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "definitely not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't want that"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no that's ok"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no thanks"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nothing else thanks"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not right now"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no that's be all"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "don't do it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no we are good"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no don't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "not this time"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no maybe next time"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I disagree"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't think so"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "thanks but not this time"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nope"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nope not really"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no not really"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no that's okay"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nothing"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I can't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no I cannot"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "nah I'm good"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "don't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no it isn't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "na"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no no don't"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "no way"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "thanks but no"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "distraction_chosen-15-no-5-yes",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Excellent. I'll leave you alone while you do it. I'll check back in with you in 5 minutes to see how you're doing."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "absolutely"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "confirm"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yep"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yup"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes I can"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "it looks perfect"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "right"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "alright"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "alright why not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "it's okay"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yeah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "it's fine"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "do it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "go ahead"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that's correct"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sounds good"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sounds correct"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sure"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes I agree"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I think so"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yep that's right"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "perfect"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sure why not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that works"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that one works"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't mind"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes you can do it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I agree"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes that't ok"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sg"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "for sure"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ok"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "okay"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yep that's ok"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "of course"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "exactly"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes I do"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes that's alright"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "why not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "okay I will"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "disctraction-initialize",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Okay, great. Let's distract you from your craving for a little while."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "number",
+                    "fieldType" : "Twilio.NUMBER"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{number}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i choose {number}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{number} please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "finding a distraction"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "distraction"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "f a d"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "distraction sounds good"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "1 sounds good"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "one sounds good"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "give me 1"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i like the sound of 1"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "give me one"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "help me find a distraction"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "distractions seem effective"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "a distraction might work"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "give me a distraction"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "craving",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Okay, I'm here to help."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "fuck i'm hungry"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm starving"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I'm so hungry"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm craving snacks"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm about to binge eat"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm bingeing"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm really tempted right now"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i have strong cravings"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i really want to binge eat"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i want to binge eat"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i want to overeat"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i want pizza"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i want ice cream"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i want peanut butter"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i want junk food"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm craving junk food"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i want to eat too much"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "craving-strong",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Woah! A pretty strong craving! Glad you're texting me, instead of giving in! Kudos to you — seriously."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "degree",
+                    "fieldType" : "degree"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{degree}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'd say {degree}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "about a {degree}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "about an {degree}"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "craving-mild",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "A fairly $degree craving, eh? You're being very proactive! Good for you!"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "degree",
+                    "fieldType" : "degree"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{degree}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'd say {degree}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "about a {degree}"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "craving-extreme",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Oh MAN! Very extreme craving! It must be REALLY hard to text me, instead of giving in. Great job. Very impressive."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "degree",
+                    "fieldType" : "degree"
+                },
+                {
+                    "uniqueName" : "number",
+                    "fieldType" : "Twilio.NUMBER"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'd say a {degree}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "about {degree}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'd say {degree}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "a {degree}!"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{degree}"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "craving-0",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Uh...okay. So you're...not craving? Are you just curious about texting me?"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "degree",
+                    "fieldType" : "degree"
+                },
+                {
+                    "uniqueName" : "number",
+                    "fieldType" : "Twilio.NUMBER"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{degree} out of {number}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{degree} / {number}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{degree} craving"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{degree}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "totally {degree}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "none"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "craving-moderate",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Alright, so a $degree craving. Good that you're texting me before it gets too overwhelming!"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [
+                {
+                    "uniqueName" : "degree",
+                    "fieldType" : "degree"
+                },
+                {
+                    "uniqueName" : "number",
+                    "fieldType" : "Twilio.NUMBER"
+                }
+            ],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'd say a {degree}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "about {degree}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{degree} i think"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{degree} ish"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{degree} out of {number}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{degree} seems right"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "about a {degree}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'd say {degree}"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "{degree}"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "choosing-technique",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Which activity sounds right for you?"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "absolutely"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "confirm"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yep"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yup"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes I can"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "it looks perfect"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "right"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "alright"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "alright why not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "it's okay"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes please"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yeah"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "it's fine"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "do it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "go ahead"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that's correct"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sounds good"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sounds correct"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sure"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes I agree"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I think so"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yep that's right"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "perfect"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sure why not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that works"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "that one works"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I don't mind"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes you can do it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I agree"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes that't ok"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "sg"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "for sure"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "ok"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "okay"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yep that's ok"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "of course"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "exactly"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes I do"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes that's alright"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "why not"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "okay I will"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "yes"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "already-binged",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "I'm sorry. It never feels good to lose control. Let's figure out why you did it."
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I ate too much"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i'm ashamed of how much i ate"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i overate"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i had too much food"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i finished a whole pizza"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i finished a whole pint of ice cream"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i ate and i wasn't even hungry"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i just binged on junk food"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i just binged on pizza"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i ate a lot"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i ate so much food"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i couldn't stop eating"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "i lost control and binged"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "Default-Welcome-Intent",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "Hi! How are you doing?"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : [
+                {
+                    "language" : "en-US",
+                    "taggedText" : "a good day"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hello there"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hello again"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I greet you"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "lovely day isn't it"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hello"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "long time no see"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hey"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "greetings"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hi there"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hey there"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "howdy"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "hello hi"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "heya"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "just going to say hi"
+                }
+            ]
+        },
+        {
+            "uniqueName" : "Default-Fallback-Intent",
+            "actions" : {
+                "actions" : [
+                    {
+                        "say" : {
+                            "speech" : "I didn't get that. Can you say it again?"
+                        }
+                    },
+                    { "listen" : true }
+                ]
+            },
+            "fields" : [],
+            "samples" : []
+        }
+    ],
+    "modelBuild" : {
+        "uniqueName" : "fuck-im-hungry_9-7-2020_9.12.43am"
+    }
+}
