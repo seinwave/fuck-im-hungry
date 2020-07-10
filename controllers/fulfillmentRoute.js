@@ -18,6 +18,9 @@ const fulfillment = async (req, res) => {
     }
 
     function event(agent) {
+
+        console.log(agent.response);
+        agent.add("Tell me the name of the event.")
         Event.findOne({'event': agent.parameters.event_name[0]}),
         function(err, course){
             const event = new Event({ event_name: agent.parameters.event_name[0],
