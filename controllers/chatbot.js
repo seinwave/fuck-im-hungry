@@ -1,18 +1,18 @@
 'use strict'
 
 const df = require('dialogflow');
-const devConfig =  require("../config/dev.js")
+const config =  require("./config/keys.js")
 const structjson = require('../config/structjson')
 
 const mongoose = require('mongoose');
 const Events = mongoose.model('events')
 
-const projectID = devConfig.googleProjectID;
-const sessionID = devConfig.dialogFlowSessionID;
+const projectID = config.googleProjectID;
+const sessionID = config.dialogFlowSessionID;
 
 const credentials = {
-    client_email: devConfig.googleClientEmail,
-    private_key: devConfig.googlePrivateKey
+    client_email: config.googleClientEmail,
+    private_key: config.googlePrivateKey
 }
 
 const sessionClient = new df.SessionsClient({projectID, credentials})
@@ -25,7 +25,7 @@ const textQuery = async (text, parameters = {}) => {
         queryInput: {
             text: {
                 text:text,
-                languageCode: devConfig.dialogFlowSessionLanguageCode,
+                languageCode: config.dialogFlowSessionLanguageCode,
             },
         },
         queryParams: {
