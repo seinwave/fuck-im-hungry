@@ -20,6 +20,8 @@ const fulfillment = async (req, res) => {
     let intentMap = new Map();
     intentMap.set('snoopy', snoopy);
     intentMap.set('event', event)
+
+    agent.handleRequest(intentMap)
 }
 
 
