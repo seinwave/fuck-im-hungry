@@ -6,6 +6,7 @@ const structjson = require('../config/structjson')
 
 const mongoose = require('mongoose');
 const Events = mongoose.model('events')
+const Cravings = mongoose.model('cravings')
 
 const projectID = config.googleProjectID;
 const sessionID = config.dialogFlowSessionID;
@@ -61,19 +62,19 @@ const handleAction = (responses) => {
       return responses;
   }
 
-const saveRegistration =  async (fields) => {
-    console.log("fields are:", fields)
-    let registration = new Events({
-        event_name: fields.event_name.stringValue,
-        devangel_name: fields.devangel_name.stringValue,
-    });
-    try{
-        let reg = await registration.save();
-        console.log("This was saved:", reg);
-    } catch (err){
-        console.log(err);
-    }
-}
+// const saveRegistration =  async (fields) => {
+//     console.log("fields are:", fields)
+//     let registration = new Events({
+//         event_name: fields.event_name.stringValue,
+//         devangel_name: fields.devangel_name.stringValue,
+//     });
+//     try{
+//         let reg = await registration.save();
+//         console.log("This was saved:", reg);
+//     } catch (err){
+//         console.log(err);
+//     }
+// }
 
 module.exports = {
     textQuery,

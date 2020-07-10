@@ -1,6 +1,7 @@
 const { WebhookClient } = require('dialogflow-fulfillment');
 const mongoose = require('mongoose');
 const Event = mongoose.model('events');
+const Craving = mongoose.model('cravings')
 
 const fulfillment = async (req, res) => {
     const agent = new WebhookClient({ request: req, response: res });
@@ -9,6 +10,15 @@ const fulfillment = async (req, res) => {
         console.log('You figured it out, borpo!', agent.parameters);
 
         agent.add("The Contract is Sealed")
+    }
+
+    function cravings(agent){
+
+        Craving.findOne({ 'degree' : agent.parameters.degree[0] }),
+        function(err, degree){
+            const craving = new Craving({ degree: agent.parameters.degree[0]}) 
+            craving.save()
+        }
     }
 
     // function event(agent) {
@@ -25,6 +35,7 @@ const fulfillment = async (req, res) => {
 
     let intentMap = new Map();
     intentMap.set('snoopy', snoopy);
+    intentMap.set('craving-moderate', craving);
 
     agent.handleRequest(intentMap)
 }
