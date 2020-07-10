@@ -13,6 +13,7 @@ const config =  require("./config/keys.js")
 const mongoose = require('mongoose')
 mongoose.connect(config.mongoURI, { useNewUrlParser: true});
 require('./models/Events');
+require('./models/Cravings')
 
 
 
