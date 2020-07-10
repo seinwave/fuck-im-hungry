@@ -17,17 +17,17 @@ const fulfillment = async (req, res) => {
         agent.add("The Contract is Sealed")
     }
 
-    function event(agent) {
+    // function event(agent) {
 
-        console.log(agent.response);
-        agent.add("Tell me the name of the event.")
-        Event.findOne({'event': agent.parameters.event_name[0]}),
-        function(err, course){
-            const event = new Event({ event_name: agent.parameters.event_name[0],
-            devangel_name: agent.paramenters.devangel_name[0]})
-            event.save();
-        }
-    }
+    //     console.log(agent.response);
+    //     agent.add("Tell me the name of the event.")
+    //     Event.findOne({'event': agent.parameters.event_name[0]}),
+    //     function(err, course){
+    //         const event = new Event({ event_name: agent.parameters.event_name[0],
+    //         devangel_name: agent.paramenters.devangel_name[0]})
+    //         event.save();
+    //     }
+    // }
 
     let intentMap = new Map();
     intentMap.set('snoopy', snoopy);
