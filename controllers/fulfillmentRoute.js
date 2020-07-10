@@ -13,7 +13,7 @@ const fulfillment = async (req, res) => {
 
     function cravings(agent){
         console.log("This is working", agent)
-        const craving = new Craving({ degree: agent.parameters.degree}) 
+        const craving = new Craving({ craving: agent.parameters.degree}) 
         craving.save()
         agent.add("Thanks a lot fuckboi")
     }
