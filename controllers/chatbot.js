@@ -53,6 +53,11 @@ const handleAction = (responses) => {
     let self = module.exports;
       let queryResult = responses[0].queryResult;
       switch (queryResult.action){
+        case 'craving-moderate':
+            if (queryResult.allRequiredParamsPresent){
+                self.saveCraving(queryResult.paremeters.fields);
+            }
+            break;
         case 'event-yes':
           if (queryResult.allRequiredParamsPresent){
             self.saveRegistration(queryResult.parameters.fields)
@@ -62,24 +67,38 @@ const handleAction = (responses) => {
       return responses;
   }
 
-// const saveRegistration =  async (fields) => {
-//     console.log("fields are:", fields)
-//     let registration = new Events({
-//         event_name: fields.event_name.stringValue,
-//         devangel_name: fields.devangel_name.stringValue,
-//     });
-//     try{
-//         let reg = await registration.save();
-//         console.log("This was saved:", reg);
-//     } catch (err){
-//         console.log(err);
-//     }
-// }
+const saveRegistration =  async (fields) => {
+    console.log("fields are:", fields)
+    let registration = new Events({
+        event_name: fields.event_name.stringValue,
+        devangel_name: fields.devangel_name.stringValue,
+    });
+    try{
+        let reg = await registration.save();
+        console.log("This was saved:", reg);
+    } catch (err){
+        console.log(err);
+    }
+}
+
+const saveCraving =  async (fields) => {
+    console.log("fields are:", fields)
+    let registration = new Cravings({
+        craving: fields.degree.value
+    });
+    try{
+        let reg = await registration.save();
+        console.log("This was saved:", reg);
+    } catch (err){
+        console.log(err);
+    }
+}
 
 module.exports = {
     textQuery,
     saveRegistration,
-    handleAction
+    handleAction,
+    saveCraving
 }
 
 
