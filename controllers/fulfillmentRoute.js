@@ -12,10 +12,10 @@ const fulfillment = async (req, res) => {
     }
 
     function cravings(agent){
-
-        Craving.findOne({ 'degree' : agent.parameters.degree[0] }),
+        console.log("This is working")
+        Craving.findOne({ 'degree' : agent.parameters.degree.original }),
         function(err, degree){
-            const craving = new Craving({ degree: agent.parameters.degree[0]}) 
+            const craving = new Craving({ degree: agent.parameters.degree.original}) 
             craving.save()
         }
     }
