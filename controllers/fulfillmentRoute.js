@@ -1,6 +1,5 @@
 const { WebhookClient } = require('dialogflow-fulfillment');
 const mongoose = require('mongoose');
-const Event = mongoose.model('events');
 const Craving = mongoose.model('cravings')
 
 const fulfillment = async (req, res) => {
@@ -35,7 +34,7 @@ const fulfillment = async (req, res) => {
 
     let intentMap = new Map();
     intentMap.set('snoopy', snoopy);
-    intentMap.set('craving-moderate', craving);
+    intentMap.set('craving-moderate', cravings);
 
     agent.handleRequest(intentMap)
 }
