@@ -12,7 +12,7 @@ const fulfillment = async (req, res) => {
     }
 
     function cravings(agent){
-        console.log("This is working", agent.parameters)
+        console.log("This is working", agent)
         const craving = new Craving({ degree: agent.parameters}) 
         craving.save()
     }
