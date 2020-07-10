@@ -5,12 +5,6 @@ const Event = mongoose.model('events');
 const fulfillment = async (req, res) => {
     const agent = new WebhookClient({ request: req, response: res });
 
-    console.log(request)
-
-    function fallback(agent) {
-        agent.add("Didn't catch that.")
-    }
-
     function snoopy(agent) {
         console.log('You figured it out, borpo!', agent.parameters);
 
@@ -31,8 +25,6 @@ const fulfillment = async (req, res) => {
 
     let intentMap = new Map();
     intentMap.set('snoopy', snoopy);
-    intentMap.set('event', event);
-    intentMap.set('fallback', fallback);
 
     agent.handleRequest(intentMap)
 }
