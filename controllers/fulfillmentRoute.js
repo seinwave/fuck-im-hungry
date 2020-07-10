@@ -12,7 +12,8 @@ const fulfillment = async (req, res) => {
     }
 
     function cravings(agent){
-        console.log("This is working")
+        console.log("This is working", agent.parameters.degree.original)
+        
         Craving.findOne({ 'degree' : agent.parameters.degree.original }),
         function(err, degree){
             const craving = new Craving({ degree: agent.parameters.degree.original}) 
