@@ -1,7 +1,7 @@
 'use strict'
 
 const df = require('dialogflow');
-const config =  require("./config/keys.js")
+const config =  require("../config/keys.js")
 const structjson = require('../config/structjson')
 
 const mongoose = require('mongoose');
