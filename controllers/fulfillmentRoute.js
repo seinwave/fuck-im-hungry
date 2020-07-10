@@ -15,7 +15,9 @@ const fulfillment = async (req, res) => {
         console.log("This is working", agent)
         const craving = new Craving({ craving: agent.parameters.degree}) 
         craving.save()
-        agent.add("Thanks a lot fuckboi")
+        agent.QueryResult.output_contexts = ["awaiting_readiness"]
+        agent.add("Thanks a lot fuckboi");
+        agent.add("Now let's get to work. We can try a few different techniques to prevent a bingefest. They each take about 15 minutes. Do you have time for that right now?")
     }
 
     // function event(agent) {
@@ -33,6 +35,9 @@ const fulfillment = async (req, res) => {
     let intentMap = new Map();
     intentMap.set('snoopy', snoopy);
     intentMap.set('craving-moderate', cravings);
+    intentMap.set('craving-extreme', cravings);
+    intentMap.set('craving-mild', cravings);
+    intentMap.set('craving-strong', cravings);
 
     agent.handleRequest(intentMap)
 }
