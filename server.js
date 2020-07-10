@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const config = require('config/dev.js')
+const config =  require("/config/keys.js")
 
 
 const mongoose = require('mongoose')
