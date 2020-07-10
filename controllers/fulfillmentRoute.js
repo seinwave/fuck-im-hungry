@@ -15,7 +15,7 @@ const fulfillment = async (req, res) => {
         console.log("This is working", agent)
         const craving = new Craving({ craving: agent.parameters.degree}) 
         craving.save()
-        agent.QueryResult.output_contexts = ["awaiting_readiness"]
+        agent.context.set('awaiting_readiness', 3)
         agent.add("Thanks a lot fuckboi");
         agent.add("Now let's get to work. We can try a few different techniques to prevent a bingefest. They each take about 15 minutes. Do you have time for that right now?")
     }
