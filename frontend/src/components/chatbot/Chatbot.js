@@ -44,8 +44,8 @@ class Chatbot extends Component {
         
         this.setState({messages: [...this.state.messages, says]})
         try {
-            const res = await axios.post('/api/df_text_query', 
-                {text, userID: cookies.get('userID')})
+            const res = await axios.post('https://bingebot.herokuapp.com/api/df_text_query', 
+                {text})
 
                 console.log(res.data)
             
@@ -107,24 +107,24 @@ class Chatbot extends Component {
         })
     }
 
-    async componentDidMount() {
-        this.df_event_query('welcome');
-        if (window.location.pathname === '/shop' &&
-        !this.state.shopWelcomeSent){
-           await this.resolveAfterXSeconds(1);
-            this.df_event_query('WELCOME_TO_SHOP');
-            this.setState({shopWelcomeSent:true});
-        }
+    // async componentDidMount() {
+    //     this.df_event_query('welcome');
+    //     if (window.location.pathname === '/shop' &&
+    //     !this.state.shopWelcomeSent){
+    //        await this.resolveAfterXSeconds(1);
+    //         this.df_event_query('WELCOME_TO_SHOP');
+    //         this.setState({shopWelcomeSent:true});
+    //     }
 
-        this.props.history.listen(() => {
-            console.log('listening');
-            if (this.props.history.location.pathname === '/shop'
-            && !this.state.shopWelcomeSent){
-                this.df_event_query('WELCOME_TO_SHOP');
-                this.setState({shopWelcomeSent:true});
-            }
-        });
-    }
+    //     this.props.history.listen(() => {
+    //         console.log('listening');
+    //         if (this.props.history.location.pathname === '/shop'
+    //         && !this.state.shopWelcomeSent){
+    //             this.df_event_query('WELCOME_TO_SHOP');
+    //             this.setState({shopWelcomeSent:true});
+    //         }
+    //     });
+    // }
 
     componentDidUpdate() {
         this.messagesEnd.scrollIntoView({behavior: "smooth"});

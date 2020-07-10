@@ -5,21 +5,31 @@ const Event = mongoose.model('events');
 const fulfillment = async (req, res) => {
     const agent = new WebhookClient({ request: req, response: res });
 
+    console.log(request)
+
+    function fallback(agent) {
+        agent.add("Didn't catch that.")
+    }
+
     function snoopy(agent) {
         console.log('You figured it out, borpo!', agent.parameters);
-
-        // Event.findOne({'event': agent.parameters.event[0]})
 
         agent.add("The Contract is Sealed")
     }
 
     function event(agent) {
-        console.log('')
+        Event.findOne({'event': agent.parameters.event_name[0]}),
+        function(err, course){
+            const event = new Event({ event_name: agent.parameters.event_name[0],
+            devangel_name: agent.paramenters.devangel_name[0]})
+            event.save();
+        }
     }
 
     let intentMap = new Map();
     intentMap.set('snoopy', snoopy);
-    intentMap.set('event', event)
+    intentMap.set('event', event);
+    intentMap.set('fallback', fallback);
 
     agent.handleRequest(intentMap)
 }
@@ -27,5 +37,6 @@ const fulfillment = async (req, res) => {
 
 
 module.exports = {
-    fulfillment 
+    fulfillment
+    
 }
