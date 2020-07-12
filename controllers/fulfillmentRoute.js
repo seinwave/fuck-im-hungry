@@ -2,7 +2,7 @@ const { WebhookClient } = require('dialogflow-fulfillment');
 const mongoose = require('mongoose');
 const Craving = mongoose.model('cravings')
 const nlp = require('compromise');
-nlp.extend(require('numbers'));
+nlp.extend(require('compromise-numbers'));
 
 const fulfillment = async (req, res) => {
     const agent = new WebhookClient({ request: req, response: res });
