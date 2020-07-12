@@ -13,7 +13,8 @@ const fulfillment = async (req, res) => {
 
     function cravings(agent){
         console.log("This is working", agent)
-        const craving = new Craving({ craving: agent.parameters.degree}) 
+        const craving = new Craving({ craving: agent.parameters.degree})
+        craving.name = 'norp' 
         craving.save()
         agent.context.set('awaiting_readiness', 3)
         agent.add("Thanks a lot fuckboi");
