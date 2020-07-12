@@ -6,7 +6,7 @@ const fulfillment = async (req, res) => {
     const agent = new WebhookClient({ request: req, response: res });
 
     function cravings(agent){
-        console.log("This is working", agent.parameters)
+        console.log("This is working", agent )
         const craving = new Craving({ craving: agent.parameters.degree, name: ''})
         craving.name = craving._id
         craving.save()
