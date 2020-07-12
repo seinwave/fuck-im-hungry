@@ -10,7 +10,7 @@ const fulfillment = async (req, res) => {
     function cravings(agent){
 
         let doc = nlp(agent.query);
-        doc = doc.numbers().toNumber();
+        doc = parseInt(doc.numbers().toNumber().text());
 
         console.log("This is working", doc )
         const craving = new Craving({ craving: agent.parameters.degree, name: '', scoreBefore: doc, scoreAfter: '', intervention: ''})
