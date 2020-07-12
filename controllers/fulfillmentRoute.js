@@ -8,11 +8,9 @@ const fulfillment = async (req, res) => {
     const agent = new WebhookClient({ request: req, response: res });
 
     function cravings(agent){
-        console.log(agent.session);
         let doc = nlp(agent.query);
         doc = parseInt(doc.numbers().toNumber().text());
-        const craving = new Craving({ craving: agent.parameters.degree, name: '', scoreBefore: doc, scoreAfter: "", intervention: "", date: Date.now()})
-        craving.name = craving._id
+        const craving = new Craving({ craving: agent.parameters.degree, name: agent.session, scoreBefore: doc, scoreAfter: "", intervention: "", date: Date.now()})
         craving.save()
         agent.context.set('awaiting_readiness', 3)
         agent.add(agent.consoleMessages[0].text); 
