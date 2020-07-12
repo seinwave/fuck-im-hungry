@@ -21,18 +21,6 @@ const fulfillment = async (req, res) => {
         agent.add("Now let's get to work. We can try a few different techniques to prevent a bingefest. They each take about 15 minutes. Do you have time for that right now?")
     }
 
-    // function event(agent) {
-
-    //     console.log(agent.response);
-    //     agent.add("Tell me the name of the event.")
-    //     Event.findOne({'event': agent.parameters.event_name[0]}),
-    //     function(err, course){
-    //         const event = new Event({ event_name: agent.parameters.event_name[0],
-    //         devangel_name: agent.paramenters.devangel_name[0]})
-    //         event.save();
-    //     }
-    // }
-
     let intentMap = new Map();
     intentMap.set('snoopy', snoopy);
     intentMap.set('craving-moderate', cravings);
