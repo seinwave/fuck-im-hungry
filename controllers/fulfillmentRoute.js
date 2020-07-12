@@ -13,11 +13,11 @@ const fulfillment = async (req, res) => {
         doc = parseInt(doc.numbers().toNumber().text());
 
         console.log("This is working", doc )
-        const craving = new Craving({ craving: agent.parameters.degree, name: '', scoreBefore: doc, scoreAfter: '', intervention: ''})
+        const craving = new Craving({ craving: agent.parameters.degree, name: '', scoreBefore: doc, scoreAfter: "", intervention: ""})
         craving.name = craving._id
         craving.save()
         agent.context.set('awaiting_readiness', 3)
-        agent.add(agent.consoleMessages[0].text); // trying this shit out
+        agent.add(agent.consoleMessages[0].text); 
         agent.add("Now let's get to work. We can try a few different techniques to prevent a bingefest. They each take about 15 minutes. Do you have time for that right now?")
     }
 
