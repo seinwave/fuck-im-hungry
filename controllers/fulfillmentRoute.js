@@ -13,7 +13,7 @@ const fulfillment = async (req, res) => {
         doc = doc.numbers().toNumber();
 
         console.log("This is working", doc )
-        const craving = new Craving({ craving: agent.parameters.degree, name: '', cravingBefore: '', cravingAfter: '', intervention: ''})
+        const craving = new Craving({ craving: agent.parameters.degree, name: '', scoreBefore: doc, scoreAfter: '', intervention: ''})
         craving.name = craving._id
         craving.save()
         agent.context.set('awaiting_readiness', 3)
