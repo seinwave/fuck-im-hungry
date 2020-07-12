@@ -8,6 +8,7 @@ const fulfillment = async (req, res) => {
     const agent = new WebhookClient({ request: req, response: res });
 
     function cravings(agent){
+        console.log(agent);
         let doc = nlp(agent.query);
         doc = parseInt(doc.numbers().toNumber().text());
         const craving = new Craving({ craving: agent.parameters.degree, name: '', scoreBefore: doc, scoreAfter: "", intervention: "", date: Date.now()})
