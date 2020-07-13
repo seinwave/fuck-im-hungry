@@ -20,11 +20,9 @@ const fulfillment = async (req, res) => {
 
     // Saving user's intervention choice
     theChoice = (agent) => {  
-        console.log(agent);
         let doc = Craving.findOne({'name': agent.session });
-        console.log("The doc is", doc);
 
-        let msg = agent.consoleMessages.text
+        let msg = agent.consoleMessages[0].text
 
         switch(msg) {
             case 0:
