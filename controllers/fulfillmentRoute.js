@@ -21,7 +21,7 @@ const fulfillment = async (req, res) => {
     // Saving user's intervention choice
     theChoice = (agent) => {  
         
-        let doc
+        console.log(agent.session)
         
         Craving.findOne({'name': agent.session }, function (err, doc) {
             if (err) {
