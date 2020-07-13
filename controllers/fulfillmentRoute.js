@@ -9,7 +9,7 @@ const fulfillment = async (req, res) => {
 
      // Initializing new MongoDB document; saving craving levels
     cravings = (agent) => {
-
+        // need to check for existing doc first!!
         let name = agent.session.trimEnd();
         let doc = nlp(agent.query);
         doc = parseInt(doc.numbers().toNumber().text());
