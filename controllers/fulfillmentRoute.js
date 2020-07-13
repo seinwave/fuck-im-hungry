@@ -27,7 +27,7 @@ const fulfillment = async (req, res) => {
             if (err) {
                 console.log(err)
             }
-            return doc = craving // is undefined? for some reason?
+            return console.log(craving) // is undefined? for some reason?
         });
 
         let msg = agent.consoleMessages[0].text
