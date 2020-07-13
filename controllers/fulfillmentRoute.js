@@ -21,12 +21,13 @@ const fulfillment = async (req, res) => {
     // Saving user's intervention choice
     theChoice = (agent) => {  
         
+        let doc
         
-        let doc = await Craving.findOne({'name': agent.session }, function (err, craving) {
+        Craving.findOne({'name': agent.session }, function (err, craving) {
             if (err) {
                 console.log(err)
             }
-            return craving // is undefined? for some reason?
+            return doc = craving // is undefined? for some reason?
         });
 
         let msg = agent.consoleMessages[0].text
