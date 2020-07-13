@@ -26,21 +26,21 @@ const fulfillment = async (req, res) => {
 
         switch(msg) {
             case 0:
-                msg == "Okay, great. Let's distract you from your craving for a little while."
+                msg === "Okay, great. Let's distract you from your craving for a little while."
                 doc.intervention = "Distraction";
                 doc.save();
                 agent.context.set('awaiting_readiness_distraction', 3);
                 break;
             
             case 1:
-                msg == "Great! Let's try some self-talk!"
+                msg === "Great! Let's try some self-talk!"
                 doc.intervention = "Self-talk";
                 doc.save();
                 agent.context.set('awaiting_self_readiness', 3)
                 break;
 
             case 2:
-                msg == "Okay! Let's try surfing the urge."
+                msg === "Okay! Let's try surfing the urge."
                 doc.intervention = "Self-talk";
                 doc.save();
                 agent.context.set('surf-explain-yes', 3)
@@ -48,7 +48,7 @@ const fulfillment = async (req, res) => {
                 break;
 
             case 3:
-                msg == "Alright! Let's make a pro / con list."
+                msg === "Alright! Let's make a pro / con list."
                 doc.intervention = "Pro / Con List";
                 doc.save();
                 agent.context.set('procon-ready', 3)
