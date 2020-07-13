@@ -22,46 +22,38 @@ const fulfillment = async (req, res) => {
     theChoice = (agent) => {  
         
         console.log(agent.session)
+
+        let msg = agent.consoleMessages[0].text
         
         Craving.findOne({'name': agent.session }, function (err, doc) {
             if (err) {
                 console.log(err)
             }
 
-            let msg = agent.consoleMessages[0].text
-            
-
-            console.log(msg)
-
             switch(msg) {
                 default:
                     doc.intervention = "Fuckleberry";
-                    doc.save();
                     agent.context.set('awaiting_readiness_distraction', 3);
                     break;
                     
                 case 'Okay, great. Let\'s distract you from your craving for a little while.':
                     doc.intervention = "Distraction";
-                    doc.save();
                     agent.context.set('awaiting_readiness_distraction', 3);
                     break;
                 
                 case 'Great! Let\'s try some self-talk!':
                     doc.intervention = "Self-talk";
-                    doc.save();
                     agent.context.set('awaiting_self_readiness', 3)
                     break;
     
                 case 'Okay! Let\'s try surfing the urge.':
                     doc.intervention = "Self-talk";
-                    doc.save();
                     agent.context.set('surf-explain-yes', 3)
                     agent.context.set('surf-dont-explain-ready', 3)
                     break;
     
                 case 'Alright! Let\'s make a pro / con list.':
                     doc.intervention = "Pro / Con List";
-                    doc.save();
                     agent.context.set('procon-ready', 3)
                     break;
             }
@@ -70,6 +62,7 @@ const fulfillment = async (req, res) => {
         agent.consoleMessages.map(i => {
             agent.add(i.text);
         })
+        return doc.save();
     }
 
     let intentMap = new Map();
