@@ -22,7 +22,7 @@ const fulfillment = async (req, res) => {
     theChoice = (agent) => {  
         
         
-        let doc = Craving.findOne({'name': agent.session }, function (err, craving) {
+        let doc = await Craving.findOne({'name': agent.session }, function (err, craving) {
             if (err) {
                 console.log(err)
             }
