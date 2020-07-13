@@ -142,7 +142,8 @@ class Chatbot extends Component {
 
     handleQuickReplyPayload(event, payload, text){
         // stops app from following a href link
-        event.preventDefault();
+   
+     event.preventDefault();
         event.stopPropagation();
         
         switch (payload) {
@@ -157,7 +158,6 @@ class Chatbot extends Component {
                 break; 
         }
     }
-
 
     renderOneMessage(message, i) {
         if (message.msg && message.msg.text && message.msg.text.text){
