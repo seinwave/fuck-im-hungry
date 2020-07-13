@@ -34,6 +34,12 @@ const fulfillment = async (req, res) => {
             console.log(msg)
 
             switch(msg) {
+                default:
+                    doc.intervention = "Fuckleberry";
+                    doc.save();
+                    agent.context.set('awaiting_readiness_distraction', 3);
+                    break;
+                    
                 case 'Okay, great. Let\'s distract you from your craving for a little while.':
                     doc.intervention = "Distraction";
                     doc.save();
