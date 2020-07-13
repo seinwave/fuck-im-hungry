@@ -18,8 +18,8 @@ const credentials = {
 
 const sessionClient = new df.SessionsClient({projectID, credentials})
 
-const textQuery = async (text, parameters = {}) => {
-    let sessionPath = sessionClient.sessionPath(projectID, sessionID);
+const textQuery = async (text, userID, parameters = {}) => {
+    let sessionPath = sessionClient.sessionPath(projectID, sessionID + userID);
     let self = module.exports; 
     const request = {
         session: sessionPath,

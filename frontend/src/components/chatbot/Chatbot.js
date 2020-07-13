@@ -45,7 +45,7 @@ class Chatbot extends Component {
         this.setState({messages: [...this.state.messages, says]})
         try {
             const res = await axios.post('https://bingebot.herokuapp.com/api/df_text_query', 
-                {text})
+            {text, userID: cookies.get('userID')})
 
                 console.log(res.data)
             
