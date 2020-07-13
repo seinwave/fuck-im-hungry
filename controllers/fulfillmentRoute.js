@@ -29,8 +29,6 @@ const fulfillment = async (req, res) => {
             }
 
             let msg = agent.consoleMessages[0].text
-
-            
             
 
             console.log(msg)
@@ -40,50 +38,38 @@ const fulfillment = async (req, res) => {
                     doc.intervention = "Fuckleberry";
                     doc.save();
                     agent.context.set('awaiting_readiness_distraction', 3);
-                    agent.consoleMessages.map(i => {
-                        agent.add(i.text);
-                    })
                     break;
-
+                    
                 case 'Okay, great. Let\'s distract you from your craving for a little while.':
                     doc.intervention = "Distraction";
                     doc.save();
                     agent.context.set('awaiting_readiness_distraction', 3);
-                    agent.consoleMessages.map(i => {
-                        agent.add(i.text);
-                    })
                     break;
                 
                 case 'Great! Let\'s try some self-talk!':
                     doc.intervention = "Self-talk";
                     doc.save();
-                    agent.context.set('awaiting_self_readiness', 3);
-                    agent.consoleMessages.map(i => {
-                        agent.add(i.text);
-                    })
+                    agent.context.set('awaiting_self_readiness', 3)
                     break;
     
                 case 'Okay! Let\'s try surfing the urge.':
                     doc.intervention = "Self-talk";
                     doc.save();
-                    agent.context.set('surf-explain-yes', 3);
-                    agent.context.set('surf-dont-explain-ready', 3);
-                    agent.consoleMessages.map(i => {
-                        agent.add(i.text);
-                    })
+                    agent.context.set('surf-explain-yes', 3)
+                    agent.context.set('surf-dont-explain-ready', 3)
                     break;
     
                 case 'Alright! Let\'s make a pro / con list.':
                     doc.intervention = "Pro / Con List";
                     doc.save();
-                    agent.context.set('procon-ready', 3);
-                    agent.consoleMessages.map(i => {
-                        agent.add(i.text);
-                    })
+                    agent.context.set('procon-ready', 3)
                     break;
             }
         });
 
+        agent.consoleMessages.map(i => {
+            agent.add(i.text);
+        })
     }
 
     let intentMap = new Map();
