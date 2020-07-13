@@ -7,11 +7,11 @@ nlp.extend(require('compromise-numbers'));
 const fulfillment = async (req, res) => {
     const agent = new WebhookClient({ request: req, response: res });
 
-     // Initializing new MongoDB document; saving craving levels
+     // Initializing new MongoDB cravingument; saving craving levels
     cravings = (agent) => { 
-        let doc = nlp(agent.query);
-        doc = parseInt(doc.numbers().toNumber().text());
-        const craving = new Craving({ craving: agent.parameters.degree, name: agent.session, scoreBefore: doc, scoreAfter: "", intervention: "", date: Date.now()})
+        let craving = nlp(agent.query);
+        craving = parseInt(craving.numbers().toNumber().text());
+        const craving = new Craving({ craving: agent.parameters.degree, name: agent.session, scoreBefore: craving, scoreAfter: "", intervention: "", date: Date.now()})
         craving.save()
         agent.context.set('awaiting_readiness', 3)
         agent.add(agent.consoleMessages[0].text); 
@@ -21,46 +21,42 @@ const fulfillment = async (req, res) => {
     // Saving user's intervention choice
     theChoice = (agent) => {  
         
-        let doc
-        
         Craving.findOne({'name': agent.session }, function (err, craving) {
             if (err) {
                 console.log(err)
             }
-            return console.log(craving) // is undefined? for some reason?
+            let msg = agent.consoleMessages[0].text
+
+            switch(msg) {
+                case "Okay, great. Let's distract you from your craving for a little while.":
+                    craving.intervention = "Distraction";
+                    craving.save();
+                    agent.context.set('awaiting_readiness_distraction', 3);
+                    break;
+                
+                case "Great! Let's try some self-talk!":
+                    craving.intervention = "Self-talk";
+                    craving.save();
+                    agent.context.set('awaiting_self_readiness', 3)
+                    break;
+
+                case "Okay! Let's try surfing the urge.":
+                    craving.intervention = "Self-talk";
+                    craving.save();
+                    agent.context.set('surf-explain-yes', 3)
+                    agent.context.set('surf-dont-explain-ready', 3)
+                    break;
+
+                case "Alright! Let's make a pro / con list.":
+                    craving.intervention = "Pro / Con List";
+                    craving.save();
+                    agent.context.set('procon-ready', 3)
+                    break;
+            }
+
         });
 
-        let msg = agent.consoleMessages[0].text
-
-        console.log(doc);
-
-        switch(msg) {
-            case "Okay, great. Let's distract you from your craving for a little while.":
-                doc.intervention = "Distraction";
-                doc.save();
-                agent.context.set('awaiting_readiness_distraction', 3);
-                break;
-            
-            case "Great! Let's try some self-talk!":
-                doc.intervention = "Self-talk";
-                doc.save();
-                agent.context.set('awaiting_self_readiness', 3)
-                break;
-
-            case "Okay! Let's try surfing the urge.":
-                doc.intervention = "Self-talk";
-                doc.save();
-                agent.context.set('surf-explain-yes', 3)
-                agent.context.set('surf-dont-explain-ready', 3)
-                break;
-
-            case "Alright! Let's make a pro / con list.":
-                doc.intervention = "Pro / Con List";
-                doc.save();
-                agent.context.set('procon-ready', 3)
-                break;
-        }
-
+        
 
         agent.consoleMessages.map(i => {
             agent.add(i.text);
