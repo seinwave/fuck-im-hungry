@@ -32,28 +32,28 @@ const fulfillment = async (req, res) => {
 
             switch(msg) {
                 default:
-                    doc.intervention = "Fuckleberry";
+                    doc.update({set: {intervention: "Fuckleberry"}});
                     agent.context.set('awaiting_readiness_distraction', 3);
                     break;
                     
                 case 'Okay, great. Let\'s distract you from your craving for a little while.':
-                    doc.intervention = "Distraction";
+                    doc.update({set: {intervention: "Fuckleberry"}})
                     agent.context.set('awaiting_readiness_distraction', 3);
                     break;
                 
                 case 'Great! Let\'s try some self-talk!':
-                    doc.intervention = "Self-talk";
+                    doc.update({set: {intervention: "Fuckleberry"}})
                     agent.context.set('awaiting_self_readiness', 3)
                     break;
     
                 case 'Okay! Let\'s try surfing the urge.':
-                    doc.intervention = "Self-talk";
+                    doc.update({set: {intervention: "Fuckleberry"}})
                     agent.context.set('surf-explain-yes', 3)
                     agent.context.set('surf-dont-explain-ready', 3)
                     break;
     
                 case 'Alright! Let\'s make a pro / con list.':
-                    doc.intervention = "Pro / Con List";
+                    doc.update({set: {intervention: "Fuckleberry"}})
                     agent.context.set('procon-ready', 3)
                     break;
             }
