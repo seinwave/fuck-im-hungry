@@ -30,6 +30,8 @@ const fulfillment = async (req, res) => {
 
             let msg = agent.consoleMessages[0].text
 
+            console.log(msg)
+
             switch(msg) {
                 case "Okay, great. Let's distract you from your craving for a little while.":
                     doc.intervention = "Distraction";
