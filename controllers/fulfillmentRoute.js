@@ -57,8 +57,6 @@ const fulfillment = async (req, res) => {
                     agent.context.set('procon-ready', 3)
                     break;
             }
-
-            return doc.save();
         });
 
         agent.consoleMessages.map(i => {
