@@ -95,7 +95,7 @@ const fulfillment = async (req, res) => {
     evaluationPost = (agent) => {
         let name = agent.session.trimEnd();
         let scoreAfter = nlp(agent.query);
-        scoreAfter = parseInt(score.numbers().toNumber().text());
+        scoreAfter = parseInt(scoreAfter.numbers().toNumber().text());
 
         Craving.findOne({'name': name }, function (err, doc) {
             if (err) {
