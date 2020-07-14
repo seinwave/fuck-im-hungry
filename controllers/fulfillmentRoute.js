@@ -107,16 +107,18 @@ const fulfillment = async (req, res) => {
         let scoreAfter = nlp(agent.query);
         scoreAfter = parseInt(scoreAfter.numbers().toNumber().text());
 
+        console.log("evaluationPost is being called")
+
         Craving.findOne({'name': name }, function (err, doc) {
             if (err) {
                 console.log(err)
             }
             else if (doc != null) {
-
                 doc.scoreAfter = scoreAfter;
                 doc.save();
-            }
+            };
 
+            console.log("evaluationPost conditionals are getting called")
             return comparator(agent, doc);
         });
     };
