@@ -119,10 +119,8 @@ const fulfillment = async (req, res) => {
             
             if (doc != null) {
                 doc.scoreAfter = scoreAfter;
-                var promise = doc.save();
-                promise.then(function (doc) {
-                    return comparator(agent, doc)
-                })
+                agent.add("Faaaaart")
+                return doc.save();
             };
 
         });
