@@ -8,7 +8,7 @@ const fulfillment = async (req, res) => {
     
 
     const agent = new WebhookClient({ request: req, response: res });
-    const oopsie = agent.add("So sorry, something went wrong on my end. Could you try again?");
+    
      // Initializing new MongoDB document; saving craving levels
     cravings = (agent) => {
         // Checking for existing doc
@@ -20,7 +20,7 @@ const fulfillment = async (req, res) => {
         Craving.findOne({'name': name }, function (err, doc) {
             if (err) {
                 console.log(err)
-                return oopsie
+                agent.add("So sorry, something went wrong on my end. Could you try again?");
             }
 
             else if (doc != null){
@@ -49,7 +49,7 @@ const fulfillment = async (req, res) => {
         Craving.findOne({'name': name }, function (err, doc) {
             if (err) {
                 console.log(err)
-                return oopsie
+                agent.add("So sorry, something went wrong on my end. Could you try again?");
             }
 
             switch(msg) {
@@ -98,8 +98,25 @@ const fulfillment = async (req, res) => {
         Craving.findOne({'name': name }, function (err, doc) {
             if (err) {
                 console.log(err)
-                return oopsie
+                agent.add("So sorry, something went wrong on my end. Could you try again?");
             }
+
+            else if (doc != null) {
+
+                if (scoreBefore - scoreAfter > 4) {
+                    agent.add("Holy shit amazing!")
+                }
+                else if (scoreBefore - scoreAfter >= 2 && scoreBefore - scoreAfter <= 4) {
+                    agent.add("That's pretty damn good!")
+                }
+
+            }
+
+            else {
+                agent.add("I'm sorry, refresh my memory. What was your craving score before you started? (0 -10)")
+            }
+
+           
 
 
         });
