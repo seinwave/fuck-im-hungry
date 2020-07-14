@@ -92,15 +92,15 @@ const fulfillment = async (req, res) => {
         
     };
 
-    comparator =  (agent, doc) => {
+    // comparator =  (agent, doc) => {
         
-        if (doc.scoreBefore > doc.scoreAfter) {
-            agent.add('Great success high five!')
-        }
-        else {
-            agent.add('Boo hoo ya dummy.')
-        }
-    }
+    //     if (doc.scoreBefore > doc.scoreAfter) {
+    //         agent.add('Great success high five!')
+    //     }
+    //     else {
+    //         agent.add('Boo hoo ya dummy.')
+    //     }
+    // }
 
     evaluationPost = (agent) => {
         let name = agent.session.trimEnd();
@@ -128,7 +128,12 @@ const fulfillment = async (req, res) => {
         });
 
         agent.add("I see!")
-        return comparator(agent, doc)
+        if (doc.scoreBefore > doc.scoreAfter) {
+            return agent.add('Great success high five!')
+        }
+        else {
+            return agent.add('Boo hoo ya dummy.')
+        }
     };
 
     let intentMap = new Map();
