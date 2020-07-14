@@ -94,12 +94,14 @@ const fulfillment = async (req, res) => {
 
     comparator = (agent, doc) => {
         console.log("comparator is firing")
-        if (doc.scoreBefore > doc.scoreAfter) {
-            agent.add('Great success high five!')
-        }
-        else {
-            agent.add('Boo hoo ya dummy.')
-        }
+
+        agent.add('Oooooh boy!')
+        // if (doc.scoreBefore > doc.scoreAfter) {
+        //     agent.add('Great success high five!')
+        // }
+        // else {
+        //     agent.add('Boo hoo ya dummy.')
+        // }
     }
 
     evaluationPost = (agent) => {
