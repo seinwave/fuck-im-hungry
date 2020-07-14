@@ -92,8 +92,10 @@ const fulfillment = async (req, res) => {
         
     };
 
-    evaluation = (agent) => {
+    evaluationPost = (agent) => {
         let name = agent.session.trimEnd();
+        let scoreAfter = nlp(agent.query);
+        scoreAfter = parseInt(score.numbers().toNumber().text());
 
         Craving.findOne({'name': name }, function (err, doc) {
             if (err) {
@@ -103,10 +105,13 @@ const fulfillment = async (req, res) => {
 
             else if (doc != null) {
 
-                if (scoreBefore - scoreAfter > 4) {
+                doc.scoreAfter = scoreAfter;
+                doc.save();
+
+                if (doc.scoreBefore - doc.scoreAfter > 4) {
                     agent.add("Holy shit amazing!")
                 }
-                else if (scoreBefore - scoreAfter >= 2 && scoreBefore - scoreAfter <= 4) {
+                else if (doc.scoreBefore - doc.scoreAfter >= 2 && doc.scoreBefore - doc.scoreAfter <= 4) {
                     agent.add("That's pretty damn good!")
                 }
 
@@ -127,10 +132,11 @@ const fulfillment = async (req, res) => {
     intentMap.set('craving-extreme', cravings);
     intentMap.set('craving-mild', cravings);
     intentMap.set('craving-strong', cravings);
-    intentMap.set('distraction-initialize', theChoice)
-    intentMap.set('procon-initialize', theChoice)
-    intentMap.set('selftalk-initialize', theChoice)
-    intentMap.set('surf-initialize', theChoice)
+    intentMap.set('distraction-initialize', theChoice);
+    intentMap.set('procon-initialize', theChoice);
+    intentMap.set('selftalk-initialize', theChoice);
+    intentMap.set('surf-initialize', theChoice);
+    intentMap.set('evaluation-post', evaluationPost);
 
 
     agent.handleRequest(intentMap)
