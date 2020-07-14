@@ -120,9 +120,10 @@ const fulfillment = async (req, res) => {
             if (doc != null) {
                 doc.scoreAfter = scoreAfter;
                 agent.add("Faaaaart")
-                return doc.save();
+                doc.save();
             };
 
+            agent.add("Faaaaart function end")
         });
     };
 
