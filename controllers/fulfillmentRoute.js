@@ -7,7 +7,7 @@ nlp.extend(require('compromise-numbers'));
 const fulfillment = async (req, res) => {
     
 
-    const agent = new WebhookClient({ request: req, response: res, useUnifiedTopology: true });
+    const agent = new WebhookClient({ request: req, response: res }, {useUnifiedTopology: true});
     
      // Initializing new MongoDB document; saving craving levels
     cravings = (agent) => {
