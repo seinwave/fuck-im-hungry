@@ -107,14 +107,16 @@ const fulfillment = async (req, res) => {
 
                 doc.scoreAfter = scoreAfter;
                 doc.save();
-                agent.add("bbooooooooonch");
 
-                if (doc.scoreBefore > doc.scoreAfter) {
-                   return agent.add("What the hell happened ya dummy?")
-                }
-                else if (doc.scoreBefore < doc.scoreAfter) {
-                    return agent.add("Well whaddya know it worked!")
-                }
+                console.log("before:", doc.scoreBefore, "after:", doc.scoreAfter)
+                return agent.add("bbooooooooonch");
+
+                // if (doc.scoreBefore > doc.scoreAfter) {
+                //    return agent.add("What the hell happened ya dummy?")
+                // }
+                // else if (doc.scoreBefore < doc.scoreAfter) {
+                //     return agent.add("Well whaddya know it worked!")
+                // }
             }
 
             else {
