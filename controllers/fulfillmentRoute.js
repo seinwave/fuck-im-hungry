@@ -5,6 +5,8 @@ const nlp = require('compromise');
 nlp.extend(require('compromise-numbers'));
 
 const fulfillment = async (req, res) => {
+    const oopsie = agent.add("So sorry, something went wrong on my end. Could you try again?");
+
     const agent = new WebhookClient({ request: req, response: res });
 
      // Initializing new MongoDB document; saving craving levels
@@ -18,17 +20,18 @@ const fulfillment = async (req, res) => {
         Craving.findOne({'name': name }, function (err, doc) {
             if (err) {
                 console.log(err)
+                return oopsie
             }
 
             else if (doc != null){
                 doc.scoreBefore = score;
                 doc.degree = degree;
-                doc.last_update = Date.now();
+                doc.date = Date.now();
                 doc.save();
             }
 
             else {
-            const craving = new Craving({ craving: degree, name: name, scoreBefore: score, scoreAfter: "", intervention: "", last_update: Date.now()})
+            const craving = new Craving({ craving: degree, name: name, scoreBefore: score, scoreAfter: "", intervention: "", date: Date.now()})
             craving.save()
             }
         })
@@ -41,12 +44,12 @@ const fulfillment = async (req, res) => {
     theChoice = (agent) => {  
         
         let name = agent.session.trimEnd();
-
         let msg = agent.consoleMessages[0].text
         
         Craving.findOne({'name': name }, function (err, doc) {
             if (err) {
                 console.log(err)
+                return oopsie
             }
 
             switch(msg) {
@@ -76,8 +79,8 @@ const fulfillment = async (req, res) => {
                     agent.context.set('procon-ready', 3)
                     break;
             }
-            
-            doc.last_update = Date.now();
+
+            doc.date = Date.now();
             return doc.save();
         });
 
@@ -87,7 +90,20 @@ const fulfillment = async (req, res) => {
             
         })
         
-    }
+    };
+
+    evaluation = (agent) => {
+        let name = agent.session.trimEnd();
+
+        Craving.findOne({'name': name }, function (err, doc) {
+            if (err) {
+                console.log(err)
+                return oopsie
+            }
+
+            
+        });
+    };
 
     let intentMap = new Map();
     intentMap.set('craving-moderate', cravings);

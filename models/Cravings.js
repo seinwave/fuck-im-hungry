@@ -7,7 +7,7 @@ const cravingsSchema = new Schema({
     scoreBefore: Number,
     scoreAfter: Number,
     intervention: String,
-    late_update: Date
+    date: Date
 
 });
 
