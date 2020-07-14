@@ -93,6 +93,7 @@ const fulfillment = async (req, res) => {
     };
 
     comparator = (agent, doc) => {
+        console.log("comparator is firing")
         if (doc.scoreBefore > doc.scoreAfter) {
             agent.add("Great success high five!")
         }
@@ -109,9 +110,7 @@ const fulfillment = async (req, res) => {
         Craving.findOne({'name': name }, function (err, doc) {
             if (err) {
                 console.log(err)
-                agent.add("So sorry, something went wrong on my end. Could you try again?");
             }
-
             else if (doc != null) {
 
                 doc.scoreAfter = scoreAfter;
