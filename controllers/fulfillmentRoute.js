@@ -107,6 +107,7 @@ const fulfillment = async (req, res) => {
 
                 doc.scoreAfter = scoreAfter;
                 doc.save();
+                agent.add("bbooooooooonch");
 
                 if (doc.scoreBefore - doc.scoreAfter > 4) {
                     agent.add("Holy shit amazing!")
@@ -114,9 +115,6 @@ const fulfillment = async (req, res) => {
                 else if (doc.scoreBefore - doc.scoreAfter >= 2 && doc.scoreBefore - doc.scoreAfter <= 4) {
                     agent.add("That's pretty damn good!")
                 }
-
-                agent.add("bbooooooooonch")
-
             }
 
             else {
