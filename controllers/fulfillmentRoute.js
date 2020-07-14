@@ -110,12 +110,15 @@ const fulfillment = async (req, res) => {
 
         console.log("evaluationPost is being called")
 
+        let doc 
+
         Craving.findOne({'name': name }, function (err, doc) {
             if (err) {
                 console.log(err)
             }
             
             if (doc != null) {
+                doc = doc;
                 doc.scoreAfter = scoreAfter;
                 agent.add("Faaaaart")
                 doc.save();
