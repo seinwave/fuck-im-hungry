@@ -5,10 +5,10 @@ const nlp = require('compromise');
 nlp.extend(require('compromise-numbers'));
 
 const fulfillment = async (req, res) => {
-    const oopsie = agent.add("So sorry, something went wrong on my end. Could you try again?");
+    
 
     const agent = new WebhookClient({ request: req, response: res });
-
+    const oopsie = agent.add("So sorry, something went wrong on my end. Could you try again?");
      // Initializing new MongoDB document; saving craving levels
     cravings = (agent) => {
         // Checking for existing doc
@@ -101,7 +101,7 @@ const fulfillment = async (req, res) => {
                 return oopsie
             }
 
-            
+
         });
     };
 
