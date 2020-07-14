@@ -110,7 +110,8 @@ const fulfillment = async (req, res) => {
 
         console.log("evaluationPost is being called")
 
-        let doc 
+        let scoreBefore; 
+ 
 
         Craving.findOne({'name': name }, function (err, doc) {
             if (err) {
@@ -118,8 +119,8 @@ const fulfillment = async (req, res) => {
             }
             
             if (doc != null) {
-                doc = doc;
                 doc.scoreAfter = scoreAfter;
+                scoreBefore = doc.scoreBefore;
                 agent.add("Faaaaart")
                 doc.save();
             };
@@ -128,7 +129,7 @@ const fulfillment = async (req, res) => {
         });
 
         agent.add("I see!")
-        if (doc.scoreBefore > doc.scoreAfter) {
+        if (scoreBefore > scoreAfter) {
             return agent.add('Great success high five!')
         }
         else {
