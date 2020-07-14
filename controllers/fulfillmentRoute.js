@@ -93,15 +93,13 @@ const fulfillment = async (req, res) => {
     };
 
     comparator =  (agent, doc) => {
-        console.log("comparator is firing")
-        agent.context.set('new_context', 3)
-        agent.add('Oooooh boy!')
-        // if (doc.scoreBefore > doc.scoreAfter) {
-        //     agent.add('Great success high five!')
-        // }
-        // else {
-        //     agent.add('Boo hoo ya dummy.')
-        // }
+        
+        if (doc.scoreBefore > doc.scoreAfter) {
+            agent.add('Great success high five!')
+        }
+        else {
+            agent.add('Boo hoo ya dummy.')
+        }
     }
 
     evaluationPost = (agent) => {
@@ -126,7 +124,8 @@ const fulfillment = async (req, res) => {
             agent.add("Faaaaart find function end")
         });
 
-        agent.add("evalPost function end")
+        agent.add("I see!")
+        return comparator(agent, doc0)
     };
 
     let intentMap = new Map();
