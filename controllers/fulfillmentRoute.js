@@ -92,8 +92,7 @@ const fulfillment = async (req, res) => {
         
     };
 
-    comparator = async (agent, doc) => {
-        await doc.save();
+    comparator =  (agent, doc) => {
         console.log("comparator is firing")
         agent.context.set('new_context', 3)
         agent.add('Oooooh boy!')
@@ -119,8 +118,10 @@ const fulfillment = async (req, res) => {
             
             if (doc != null) {
                 doc.scoreAfter = scoreAfter;
-                console.log("evaluationPost conditionals are getting called")
-                return comparator(agent, doc);
+                var promise = doc.save();
+                promise.then(function (doc) {
+                    return comparator(agent, doc)
+                })
             };
 
         });
