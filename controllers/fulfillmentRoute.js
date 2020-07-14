@@ -92,8 +92,8 @@ const fulfillment = async (req, res) => {
         
     };
 
-    comparator = (agent, doc) => {
-        doc.save();
+    comparator = async (agent, doc) => {
+        await doc.save();
         console.log("comparator is firing")
         agent.context.set('new_context', 3)
         agent.add('Oooooh boy!')
