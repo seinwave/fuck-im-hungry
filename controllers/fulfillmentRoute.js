@@ -125,7 +125,7 @@ const fulfillment = async (req, res) => {
         });
 
         agent.add("I see!")
-        return comparator(agent, doc0)
+        return comparator(agent, doc)
     };
 
     let intentMap = new Map();
