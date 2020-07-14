@@ -9,16 +9,33 @@ const fulfillment = async (req, res) => {
 
      // Initializing new MongoDB document; saving craving levels
     cravings = (agent) => {
-        // need to check for existing doc first!!
+        // Checking for existing doc
         let name = agent.session.trimEnd();
-        let doc = nlp(agent.query);
-        doc = parseInt(doc.numbers().toNumber().text());
-        const craving = new Craving({ craving: agent.parameters.degree, name: name, scoreBefore: doc, scoreAfter: "", intervention: "", date: Date.now()})
-        craving.save()
+        let score = nlp(agent.query);
+        score = parseInt(score.numbers().toNumber().text());
+        let degree = agent.parameters.degreee;
+
+        Craving.findOne({'name': name }, function (err, doc) {
+            if (err) {
+                console.log(err)
+            }
+
+            else if (doc != null){
+                doc.scoreBefore = score;
+                doc.degree = degree;
+                doc.last_update = Date.now();
+                doc.save();
+            }
+
+            else {
+            const craving = new Craving({ craving: degree, name: name, scoreBefore: score, scoreAfter: "", intervention: "", last_update: Date.now()})
+            craving.save()
+            }
+        })
         agent.context.set('awaiting_readiness', 3)
         agent.add(agent.consoleMessages[0].text); 
         agent.add("Now let's get to work. We can try a few different techniques to prevent a bingefest. They each take about 15 minutes. Do you have time for that right now?")
-    }
+    };
 
     // Saving user's intervention choice
     theChoice = (agent) => {  
@@ -59,7 +76,8 @@ const fulfillment = async (req, res) => {
                     agent.context.set('procon-ready', 3)
                     break;
             }
-
+            
+            doc.last_update = Date.now();
             return doc.save();
         });
 
