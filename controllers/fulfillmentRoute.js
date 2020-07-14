@@ -113,13 +113,14 @@ const fulfillment = async (req, res) => {
             if (err) {
                 console.log(err)
             }
-            else if (doc != null) {
+            
+            if (doc != null) {
                 doc.scoreAfter = scoreAfter;
                 doc.save();
+                console.log("evaluationPost conditionals are getting called")
+                return comparator(agent, doc);
             };
 
-            console.log("evaluationPost conditionals are getting called")
-            return comparator(agent, doc);
         });
     };
 
