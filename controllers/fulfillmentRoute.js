@@ -94,7 +94,7 @@ const fulfillment = async (req, res) => {
 
     comparator = (agent, doc) => {
         console.log("comparator is firing")
-
+        agent.context.set('new_context', 3)
         agent.add('Oooooh boy!')
         // if (doc.scoreBefore > doc.scoreAfter) {
         //     agent.add('Great success high five!')
