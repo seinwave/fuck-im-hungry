@@ -108,6 +108,7 @@ const fulfillment = async (req, res) => {
         let name = agent.session.trimEnd();
         let scoreAfter = nlp(agent.query);
         scoreAfter = parseInt(scoreAfter.numbers().toNumber().text());
+        console.log(agent)
 
         console.log("evaluationPost is being called")
 
