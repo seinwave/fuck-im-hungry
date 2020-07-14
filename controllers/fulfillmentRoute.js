@@ -7,7 +7,7 @@ nlp.extend(require('compromise-numbers'));
 const fulfillment = async (req, res) => {
     
 
-    const agent = new WebhookClient({ request: req, response: res });
+    const agent = new WebhookClient({ request: req, response: res, useUnifiedTopology: true });
     
      // Initializing new MongoDB document; saving craving levels
     cravings = (agent) => {
@@ -92,6 +92,15 @@ const fulfillment = async (req, res) => {
         
     };
 
+    comparator = (agent, doc) => {
+        if (doc.scoreBefore > doc.scoreAfter) {
+            agent.add("Great success high five!")
+        }
+        else {
+            agent.add("Boo hoo ya dummy.")
+        }
+    }
+
     evaluationPost = (agent) => {
         let name = agent.session.trimEnd();
         let scoreAfter = nlp(agent.query);
@@ -107,25 +116,9 @@ const fulfillment = async (req, res) => {
 
                 doc.scoreAfter = scoreAfter;
                 doc.save();
-
-                console.log("before:", doc.scoreBefore, "after:", doc.scoreAfter)
-                return agent.add("bbooooooooonch");
-
-                // if (doc.scoreBefore > doc.scoreAfter) {
-                //    return agent.add("What the hell happened ya dummy?")
-                // }
-                // else if (doc.scoreBefore < doc.scoreAfter) {
-                //     return agent.add("Well whaddya know it worked!")
-                // }
             }
 
-            else {
-                agent.add("I'm sorry, refresh my memory. What was your craving score before you started? (0 -10)")
-            }
-
-           
-
-
+            return comparator(agent, doc);
         });
     };
 
