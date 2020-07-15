@@ -126,6 +126,9 @@ const fulfillment = async (req, res) => {
             agent.add("Excellent! That's a significant drop!")
     
             switch(intervention){
+                default:
+                    agent.add("Nothing works, Matt.")
+                    break;
                 case "distraction":
                     agent.add("Looks like distracting yourself is a great tactic for you!")
                     agent.add("The great thing about it is, the more you practice distracting yourself, the weaker your cravings are going to get.")
