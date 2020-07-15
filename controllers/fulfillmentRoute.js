@@ -97,8 +97,8 @@ const fulfillment = async (req, res) => {
         let name = agent.session.trimEnd();
         let scoreAfter = nlp(agent.query);
         scoreAfter = parseInt(scoreAfter.numbers().toNumber().text());
-        let scoreBefore;
-        let intervention; 
+        let scoreBefore = [];
+        let intervention = []; 
 
         Craving.findOne({'name': name }, function (err, doc) {
             if (err) {
@@ -107,8 +107,8 @@ const fulfillment = async (req, res) => {
             
             if (doc != null) {
                 doc.scoreAfter = scoreAfter;
-                scoreBefore = doc.scoreBefore;
-                intervention = doc.intervention;
+                scoreBefore.push(doc.scoreBefore);
+                intervention.push(doc.intervention);
                 if (doc.scoreBefore > doc.scoreAfter){
                     doc.success = "Yes"
                 }
@@ -119,17 +119,16 @@ const fulfillment = async (req, res) => {
                 doc.save();
             };
 
-            return (intevention = doc.intervention, scoreBefore = doc.scoreBefore)
 
         });
 
         agent.add("I see!")
-        console.log('score before is ', scoreBefore, 'score after is ', scoreAfter)
-        console.log('intervention is ', intervention)
+        console.log('score before is ', scoreBefore[0], 'score after is ', scoreAfter)
+        console.log('intervention is ', intervention[0])
         if (scoreBefore > scoreAfter) {
             agent.add("Excellent! That's a significant drop!")
     
-            switch(intervention){
+            switch(intervention[0]){
                 default:
                     agent.add("Nothing works, Matt.")
                     break;
