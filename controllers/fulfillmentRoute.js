@@ -121,6 +121,7 @@ const fulfillment = async (req, res) => {
 
         });
 
+        agent.add("I see!")
         
         if (scoreBefore > scoreAfter && (scoreBefore - scoreAfter) >= 3) {
             
@@ -141,15 +142,17 @@ const fulfillment = async (req, res) => {
                     agent.add("Now, you've had some success here. But do you want to try another exercise? (Yes or no)")
                     break;
                 case "surfing":
-                    agent.add("Surfing works!")
+                    agent.add("Surfing seems like a good fit for you!")
                     agent.add("Urge surfing is so powerful because it totally reframes your relationship with your cravings.")
-                    agent.add("")
-                    
+                    agent.add("Instead of living 'in' your cravings, you learn to separate yourself from them. You can watch them, and eventually, let them go.")
+                    agent.add("And best of all, you can do it wherever you want — with or without my help")
                     agent.add("Now, you've had some success here. But do you want to try another exercise? (Yes or no)")
                     break;
                 case "pro-con-list":
-                    agent.add("Procon good!")
-                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    agent.add("Making a pro / con list seems like an effective strategy for you!")
+                    agent.add("It works so well because it doesn't 'forbid' you from eating. Instead, you're using information to make a rational choice.")
+                    agent.add("Plus, it's a handy way to remind yourself of why you want to stop bingeing in the first place.")
+                    agent.add("Now, you've had some success here. But do you want to try another exercise? (Yes or no)")
                     break;
             }
         }
