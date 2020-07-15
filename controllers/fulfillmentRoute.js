@@ -31,7 +31,7 @@ const fulfillment = async (req, res) => {
             }
 
             else {
-            const craving = new Craving({ craving: degree, name: name, scoreBefore: score, scoreAfter: "", intervention: "", date: Date.now()})
+            const craving = new Craving({ craving: degree, name: name, scoreBefore: score, scoreAfter: "", intervention: "", success: "", date: Date.now()})
             craving.save()
             }
         })
@@ -59,23 +59,23 @@ const fulfillment = async (req, res) => {
                     break;
                     
                 case 'Okay, great. Let\'s distract you from your craving for a little while.':
-                    doc.intervention = "Distraction";
+                    doc.intervention = "distraction";
                     agent.context.set('awaiting_readiness_distraction', 3);
                     break;
                 
                 case 'Great! Let\'s try some self-talk!':
-                    doc.intervention = "Self-talk";
+                    doc.intervention = "self-talk";
                     agent.context.set('awaiting_self_readiness', 3)
                     break;
     
                 case 'Okay! Let\'s try surfing the urge.':
-                    doc.intervention = "Self-talk";
+                    doc.intervention = "surfing";
                     agent.context.set('surf-explain-yes', 3)
                     agent.context.set('surf-dont-explain-ready', 3)
                     break;
     
                 case 'Alright! Let\'s make a pro / con list.':
-                    doc.intervention = "Pro / Con List";
+                    doc.intervention = "pro-con-list";
                     agent.context.set('procon-ready', 3)
                     break;
             }
@@ -92,26 +92,13 @@ const fulfillment = async (req, res) => {
         
     };
 
-    // comparator =  (agent, doc) => {
-        
-    //     if (doc.scoreBefore > doc.scoreAfter) {
-    //         agent.add('Great success high five!')
-    //     }
-    //     else {
-    //         agent.add('Boo hoo ya dummy.')
-    //     }
-    // }
-
+    // Evaluating how the session went
     evaluationPost = (agent) => {
         let name = agent.session.trimEnd();
         let scoreAfter = nlp(agent.query);
         scoreAfter = parseInt(scoreAfter.numbers().toNumber().text());
-        console.log(agent)
-
-        console.log("evaluationPost is being called")
-
-        let scoreBefore; 
- 
+        let scoreBefore;
+        let intervention; 
 
         Craving.findOne({'name': name }, function (err, doc) {
             if (err) {
@@ -121,18 +108,72 @@ const fulfillment = async (req, res) => {
             if (doc != null) {
                 doc.scoreAfter = scoreAfter;
                 scoreBefore = doc.scoreBefore;
-                agent.add("Faaaaart")
+                intervention = doc.intervention;
+                if (doc.scoreBefore > doc.scoreAfter){
+                    doc.success = "Yes"
+                }
+                else if (doc.scoreAfter > doc.scoreBefore){
+                    doc.success = "No"
+                }
+
                 doc.save();
             };
 
-            agent.add("Faaaaart find function end")
         });
 
         agent.add("I see!")
-        if (scoreBefore > scoreAfter) {
-            return agent.add('Great success high five!')
+        if (scoreBefore > scoreAfter && (scoreBefore - scoreAfter) >= 3) {
+            
+            agent.add("Excellent! That's a significant drop!")
+            
+            switch(intervention){
+                case "distraction":
+                    agent.add("Looks like distracting yourself is a great tactic for you!")
+                    agent.add("The great thing about it is, the more you practice distracting yourself, the weaker your cravings are going to get.")
+                    agent.add("So keep it up! You can do it on your own, or with my help if you want!")
+                    agent.add("Now, you've had some success here. But do you want to try another exercise? (Yes or no)")
+                    agent.
+                    break;
+                case "self-talk":
+                    agent.add("Self-talk seems to work for you!")
+                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    break;
+                case "surfing":
+                    agent.add("Surfing works!")
+                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    break;
+                case "pro-con-list":
+                    agent.add("Procon good!")
+                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    break;
+            }
         }
-        else {
+        else if (scoreBefore > scoreAfter && (scoreBefore - scoreAfter) <= 2) {
+
+            agent.add('Well done!')
+            switch(intervention){
+                case "distraction":
+                    agent.add("Distracting okay!")
+                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    break;
+                case "self-talk":
+                    agent.add("Self-talk okay!")
+                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    break;
+                case "surfing":
+                    agent.add("Surfing okay!")
+                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    break;
+                case "pro-con-list":
+                    agent.add("Procon okay!")
+                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    break;
+            }
+
+        }
+        
+        else if (scoreAfter >= scoreBefore) {
+
             return agent.add('Boo hoo ya dummy.')
         }
     };
