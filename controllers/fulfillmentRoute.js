@@ -93,12 +93,19 @@ const fulfillment = async (req, res) => {
     };
 
     // Evaluating how the session went
-    evaluationPost = (agent) => {
+    evaluationPost = async (agent) => {
         let name = agent.session.trimEnd();
         let scoreAfter = nlp(agent.query);
         scoreAfter = parseInt(scoreAfter.numbers().toNumber().text());
-        let scoreBefore = [];
-        let intervention = []; 
+
+
+        //executing a mongoose query
+        let preScoreObj = await Craving.findOne({'name': name }, 'scoreBefore').exec();
+        // Accessing the results of the query
+        let preScore = preScoreObj.scoreBefore;
+
+        let interventionObj = await Craving.findOne({'name': name }, 'intervention').exec();
+        let intervention = interventionObj.intervention;
 
         Craving.findOne({'name': name }, function (err, doc) {
             if (err) {
@@ -107,7 +114,6 @@ const fulfillment = async (req, res) => {
             
             if (doc != null) {
                 doc.scoreAfter = scoreAfter;
-                intervention.push(doc.intervention);
                 if (doc.scoreBefore > doc.scoreAfter){
                     doc.success = "Yes"
                 }
@@ -118,16 +124,12 @@ const fulfillment = async (req, res) => {
                 doc.save();
             };
 
-            return scoreBefore.push(doc.scoreBefore);
         });
-
-        agent.add("I see!")
-        console.log('score before is ', scoreBefore[0], 'score after is ', scoreAfter)
-        console.log('intervention is ', intervention[0])
-        if (scoreBefore > scoreAfter) {
+        
+        if (preScore > scoreAfter && preScore - scoreAfter >=3) {
             agent.add("Excellent! That's a significant drop!")
     
-            switch(intervention[0]){
+            switch(intervention){
                 default:
                     agent.add("Nothing works, Matt.")
                     break;
@@ -159,11 +161,55 @@ const fulfillment = async (req, res) => {
                     break;
     }
         }
-        else {
 
-            return agent.add('Boo hoo ya dummy.')
+        else if (preScore > scoreAfter && (preScore - scoreAfter) <= 2) {
+
+            agent.add('Well done!')
+            switch(intervention){
+                case "distraction":
+                    agent.add("Distracting okay!")
+                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    break;
+                case "self-talk":
+                    agent.add("Self-talk okay!")
+                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    break;
+                case "surfing":
+                    agent.add("Surfing okay!")
+                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    break;
+                case "pro-con-list":
+                    agent.add("Procon okay!")
+                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    break;
+            }
         }
-    };
+        else {
+            agent.add('Ah, I see.')
+            switch(intervention){
+                case "distraction":
+                    agent.add("Distracting no!")
+                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    agent.add("Do you want to try something else?")
+                    break;
+                case "self-talk":
+                    agent.add("Self-talk no!")
+                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    agent.add("Do you want to try something else?")
+                    break;
+                case "surfing":
+                    agent.add("Surfing no!")
+                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    agent.add("Do you want to try something else?")
+                    break;
+                case "pro-con-list":
+                    agent.add("Procon no!")
+                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    agent.add("Do you want to try something else?")
+                    break;
+            }
+        };
+    }
 
     let intentMap = new Map();
     intentMap.set('craving-moderate', cravings);
@@ -176,7 +222,6 @@ const fulfillment = async (req, res) => {
     intentMap.set('surf-initialize', theChoice);
     intentMap.set('evaluation-post', evaluationPost);
 
-
     agent.handleRequest(intentMap)
 }
 
@@ -184,5 +229,4 @@ const fulfillment = async (req, res) => {
 
 module.exports = {
     fulfillment
-    
 }
