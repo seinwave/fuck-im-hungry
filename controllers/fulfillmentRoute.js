@@ -107,7 +107,6 @@ const fulfillment = async (req, res) => {
             
             if (doc != null) {
                 doc.scoreAfter = scoreAfter;
-                scoreBefore.push(doc.scoreBefore);
                 intervention.push(doc.intervention);
                 if (doc.scoreBefore > doc.scoreAfter){
                     doc.success = "Yes"
@@ -119,7 +118,7 @@ const fulfillment = async (req, res) => {
                 doc.save();
             };
 
-
+            return scoreBefore.push(doc.scoreBefore);
         });
 
         agent.add("I see!")
