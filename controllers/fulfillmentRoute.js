@@ -119,6 +119,8 @@ const fulfillment = async (req, res) => {
                 doc.save();
             };
 
+            return (intevention = doc.intervention, scoreBefore = doc.scoreBefore)
+
         });
 
         agent.add("I see!")
