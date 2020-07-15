@@ -122,11 +122,9 @@ const fulfillment = async (req, res) => {
         });
 
         agent.add("I see!")
-        
-        if (scoreBefore > scoreAfter && (scoreBefore - scoreAfter) >= 3) {
-            
+        if (scoreBefore > scoreAfter) {
             agent.add("Excellent! That's a significant drop!")
-            
+    
             switch(intervention){
                 case "distraction":
                     agent.add("Looks like distracting yourself is a great tactic for you!")
@@ -154,33 +152,9 @@ const fulfillment = async (req, res) => {
                     agent.add("Plus, it's a handy way to remind yourself of why you want to stop bingeing in the first place.")
                     agent.add("Now, you've had some success here. But do you want to try another exercise? (Yes or no)")
                     break;
-            }
+    }
         }
-        else if (scoreBefore > scoreAfter && (scoreBefore - scoreAfter) <= 2) {
-
-            agent.add('Well done!')
-            switch(intervention){
-                case "distraction":
-                    agent.add("Distracting okay!")
-                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
-                    break;
-                case "self-talk":
-                    agent.add("Self-talk okay!")
-                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
-                    break;
-                case "surfing":
-                    agent.add("Surfing okay!")
-                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
-                    break;
-                case "pro-con-list":
-                    agent.add("Procon okay!")
-                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
-                    break;
-            }
-
-        }
-        
-        else if (scoreAfter >= scoreBefore) {
+        else {
 
             return agent.add('Boo hoo ya dummy.')
         }
