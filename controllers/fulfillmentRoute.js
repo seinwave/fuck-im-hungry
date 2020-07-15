@@ -121,7 +121,7 @@ const fulfillment = async (req, res) => {
 
         });
 
-        agent.add("I see!")
+        
         if (scoreBefore > scoreAfter && (scoreBefore - scoreAfter) >= 3) {
             
             agent.add("Excellent! That's a significant drop!")
@@ -132,15 +132,20 @@ const fulfillment = async (req, res) => {
                     agent.add("The great thing about it is, the more you practice distracting yourself, the weaker your cravings are going to get.")
                     agent.add("So keep it up! You can do it on your own, or with my help if you want!")
                     agent.add("Now, you've had some success here. But do you want to try another exercise? (Yes or no)")
-                    agent.
                     break;
                 case "self-talk":
                     agent.add("Self-talk seems to work for you!")
-                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    agent.add("Self-talk is wonderful because you can do it anywhere, any time.")
+                    agent.add("We practiced saying your self-talk out-loud, but it works just as well if you do it in your head.")
+                    agent.add("So feel free to try it whenever — and wherever — your urges strike! With or without my help!")
+                    agent.add("Now, you've had some success here. But do you want to try another exercise? (Yes or no)")
                     break;
                 case "surfing":
                     agent.add("Surfing works!")
-                    agent.add("The great thing about it is, if you repeatedly distract yourself from your cravings, ")
+                    agent.add("Urge surfing is so powerful because it totally reframes your relationship with your cravings.")
+                    agent.add("")
+                    
+                    agent.add("Now, you've had some success here. But do you want to try another exercise? (Yes or no)")
                     break;
                 case "pro-con-list":
                     agent.add("Procon good!")
