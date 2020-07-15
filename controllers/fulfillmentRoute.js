@@ -122,6 +122,7 @@ const fulfillment = async (req, res) => {
         });
 
         agent.add("I see!")
+        console.log(scoreBefore, scoreAfter)
         if (scoreBefore > scoreAfter) {
             agent.add("Excellent! That's a significant drop!")
     
