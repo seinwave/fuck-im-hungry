@@ -21,7 +21,7 @@ app.use( (req, res, next) => {
 })
 
 
-const fr = require('./controllers/fulfillmentRoute')
+const fr = require('./controllers/fulfillment/fulfillmentRoute')
 const tq = require('./controllers/text-query')
 
 app.get('/', (req,res) => {
