@@ -7,7 +7,9 @@ nlp.extend(require('compromise-numbers'));
 const cr = require('./cravings');
 const ch = require('./theChoice');
 const ep = require('./evaluationPost');
-const st = require('./selfTalk')
+const st = require('./selfTalk');
+const ev = require('./eval');
+const pr = require('./procon')
 
 const fulfillment = async (req, res) => {
     
@@ -24,7 +26,12 @@ const fulfillment = async (req, res) => {
     intentMap.set('selftalk-initialize', ch.theChoice);
     intentMap.set('surf-initialize', ch.theChoice);
     intentMap.set('evaluation-post', ep.evaluationPost);
-    intentMap.set('selftalk-2', st.selfTalk)
+    intentMap.set('selftalk-2', st.selfTalk);
+    intentMap.set('evaluation-pre', ev.evaluation);
+    intentMap.set('procon-list-count-against-pers-against', pr.procon);
+    intentMap.set('procon-list-count-against-pers-for', pr.procon);
+    intentMap.set('procon-list-count-for-persuasion-for', pr.procon);
+    intentMap.set('procon-list-count-for-persuasion-against', pr.procon);
 
     agent.handleRequest(intentMap)
 }

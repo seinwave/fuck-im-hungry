@@ -37,10 +37,9 @@ const textQuery = async (text, userID, parameters = {}) => {
     };
 
     let responses = await sessionClient
-
         .detectIntent(request);
-        responses = await self.handleAction(responses)
-            return responses
+        console.log(responses);
+        return responses
 
         // .catch((error) => {
         //     console.log(error)
@@ -48,37 +47,31 @@ const textQuery = async (text, userID, parameters = {}) => {
 
 }
 
-const handleAction = (responses) => {
-    console.log("HandleAction responses:",responses)
+const eventQuery = async (event, userID, parameters= {}) => {
+    let sessionPath = sessionClient.sessionPath(projectID, sessionID + userID);
     let self = module.exports;
-      let queryResult = responses[0].queryResult;
-      switch (queryResult.action){
-        case 'craving-moderate':
-            if (queryResult.allRequiredParamsPresent){
-                self.saveCraving(queryResult.paremeters.fields);
+    const request = {
+        session: sessionPath,
+        queryInput: {
+          event: {
+            // The query to send to the dialogflow agent
+            name: event,
+            parameters: structjson.jsonToStructProto(parameters),
+            // The language used by the client (en-US)
+            languageCode: config.dialogFlowSessionLanguageCode,
+          },
+        },
+        queryParams: {
+            payload: {
+                data: parameters
             }
-            break;
-        case 'event-yes':
-          if (queryResult.allRequiredParamsPresent){
-            self.saveRegistration(queryResult.parameters.fields)
-          }
-          break; 
-      }
-      return responses;
-  }
+        }
+      };
 
-const saveRegistration =  async (fields) => {
-    console.log("fields are:", fields)
-    let registration = new Events({
-        event_name: fields.event_name.stringValue,
-        devangel_name: fields.devangel_name.stringValue,
-    });
-    try{
-        let reg = await registration.save();
-        console.log("This was saved:", reg);
-    } catch (err){
-        console.log(err);
-    }
+      let responses = await sessionClient
+        .detectIntent(request);
+        
+        return responses
 }
 
 const saveCraving =  async (fields) => {
@@ -96,8 +89,7 @@ const saveCraving =  async (fields) => {
 
 module.exports = {
     textQuery,
-    saveRegistration,
-    handleAction,
+    eventQuery,
     saveCraving
 }
 

@@ -23,6 +23,7 @@ app.use( (req, res, next) => {
 
 const fr = require('./controllers/fulfillment/fulfillmentRoute')
 const tq = require('./controllers/text-query')
+const eq = require('./controllers/event-query')
 
 app.get('/', (req,res) => {
     res.send({"Borpis": "Alive"});
@@ -34,6 +35,10 @@ app.post('/', (req, res) => {
 
 app.post('/api/df_text_query', (req,res) => {
     tq.textQuery(req,res);
+})
+
+app.post('/api/df_event_query', (req,res) => {
+    eq.eventQuery(req,res);
 })
 
 
