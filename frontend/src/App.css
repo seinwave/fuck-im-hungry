@@ -67,6 +67,7 @@ input:focus{
   display: inline-block;
   border-radius: 25px;
   padding: 7px;
+  padding-left: 15px;
   box-shadow: 2px 2px 2px rgb(179, 178, 178);
 }
 
@@ -84,6 +85,7 @@ input:focus{
   display: inline-block;
   border-radius: 25px;
   padding: 7px;
+  padding-left: 15px;
   border-bottom-right-radius: 15px;
   box-shadow: 2px 2px 2px rgb(179, 178, 178);
 }

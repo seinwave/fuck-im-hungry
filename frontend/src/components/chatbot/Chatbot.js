@@ -44,7 +44,7 @@ class Chatbot extends Component {
         
         this.setState({messages: [...this.state.messages, says]})
         try {
-            const res = await axios.post('https://e8eebf860c1e.ngrok.io/api/df_text_query', 
+            const res = await axios.post('https://14570910389a.ngrok.io/api/df_text_query', 
             {text, userID: cookies.get('userID')})
 
                 console.log(res.data)
@@ -75,7 +75,7 @@ class Chatbot extends Component {
     async df_event_query(event) {
 
         //this.setState({messages: [...this.state.messages, says]})
-        const res = await axios.post('https://e8eebf860c1e.ngrok.io/api/df_event_query', 
+        const res = await axios.post('https://14570910389a.ngrok.io/api/df_event_query', 
             {event, userID: cookies.get('userID')});
 
         console.log(res);
