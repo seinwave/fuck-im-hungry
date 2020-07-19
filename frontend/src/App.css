@@ -71,6 +71,11 @@ input:focus{
   box-shadow: 2px 2px 2px rgb(179, 178, 178);
 }
 
+.scale-in-center {
+	-webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
 #bot-logo{
   float: left;
   position: relative;
@@ -88,6 +93,10 @@ input:focus{
   padding-left: 15px;
   border-bottom-right-radius: 15px;
   box-shadow: 2px 2px 2px rgb(179, 178, 178);
+}
+
+.hidden{
+  display: none;
 }
 
 

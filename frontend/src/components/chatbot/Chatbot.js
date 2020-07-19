@@ -107,24 +107,9 @@ class Chatbot extends Component {
         })
     }
 
-    // async componentDidMount() {
-    //     this.df_event_query('welcome');
-    //     if (window.location.pathname === '/shop' &&
-    //     !this.state.shopWelcomeSent){
-    //        await this.resolveAfterXSeconds(1);
-    //         this.df_event_query('WELCOME_TO_SHOP');
-    //         this.setState({shopWelcomeSent:true});
-    //     }
-
-    //     this.props.history.listen(() => {
-    //         console.log('listening');
-    //         if (this.props.history.location.pathname === '/shop'
-    //         && !this.state.shopWelcomeSent){
-    //             this.df_event_query('WELCOME_TO_SHOP');
-    //             this.setState({shopWelcomeSent:true});
-    //         }
-    //     });
-    // }
+    async componentDidMount() {
+        this.df_event_query('welcome');
+    }
 
     componentDidUpdate() {
         this.messagesEnd.scrollIntoView({behavior: "smooth"});
@@ -164,7 +149,8 @@ class Chatbot extends Component {
             return <Message 
                 speaker = {message.speaker} 
                 text = {message.msg.text.text}
-                key = {i} />
+                key = {i}
+                wait = {200000} /> // this shit does nooothing
         }
         
     }
@@ -192,7 +178,7 @@ class Chatbot extends Component {
                         <h3> Fuck I'm Hungry</h3>
                     </div>
                 </div> 
-                <div className = "row chatbot-row">   
+                <div className = "scale-in-center row chatbot-row">   
                     <div className = "col-8 chatbot-col">
                         <div id="chatbot">
                             {this.renderMessages(this.state.messages)}
