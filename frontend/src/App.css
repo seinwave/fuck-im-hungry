@@ -22,6 +22,7 @@ body {
   background-image: url('./Assets/what-the-hex.png');
   overflow-y: auto;
   padding: 1rem;
+  width: 30rem;
 }
 
 /* .chatbot-col {
