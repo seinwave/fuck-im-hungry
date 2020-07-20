@@ -6,34 +6,80 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center; 
+  /* background-image: url('./Assets/confetti.gif') */
 }
 
 .site-container{
   margin-top: 2rem;
 }
 
+.chatbot-container {
+  margin-top: 1rem;
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px 1px lightgray;
+}
+
+.bot-hed-row {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+  color: white;
+  background: linear-gradient(45deg, #9D50BB, #6E48AA);
+  justify-content: space-around;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+}
+
+.bot-name {
+  margin-bottom: 1px;
+  margin-top: 1rem;
+}
+
+.bot-status {
+  margin-top: 1px;
+}
+
+.dot{
+  height: 25px;
+  width: 25px;
+  background-color: rgb(16, 150, 45);
+  border-radius: 50%;
+  display: inline-block;
+  animation: blink-animation .2s alternate infinite;
+  animation-direction: alternate;
+  -webkit-animation: blink-animation .7s alternate infinite;
+}
+
+@keyframes blink-animation {
+  0% {
+    background-color: rgba(16, 150, 45, .4);
+  }
+  50% {
+    background-color: rgba(16, 150, 45, .65);
+  }
+  
+  100% {
+    background-color: rgba(16, 150, 45, .9);
+  }
+}
+
 .chatbot-row {
-  margin-top: 4rem;
   display: flex;
   flex-direction: column;
-  border: 0px solid darkgray;
-  height: 60vh;
+  height: 50vh;
   margin-bottom: 1rem;
   background-image: url('./Assets/what-the-hex.png');
   overflow-y: auto;
+  scrollbar-width: none;  /* Firefox */
   padding: 1rem;
+  padding-right: 15px;
   width: 30rem;
+  border-bottom: 3px solid silver;
 }
-
-/* .chatbot-col {
-  border: solid 1px #EEE;
-  width: 80%;
-  height: 80vh;
-} */
-
 
 .input-row {
   margin-left: 25%;
+  margin-bottom: 1rem;
 }
 
 input{
@@ -61,7 +107,7 @@ input:focus{
 }
 
 .bot-text{
-  background: linear-gradient(to bottom, #7b80e4 0%, #4e54c8 100%);
+  background: linear-gradient(45deg, #9D50BB, #6E48AA);
   color: white;
   width: 140%;
   display: inline-block;
@@ -121,6 +167,11 @@ input:focus{
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+::-webkit-scrollbar {
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
 .App-link {

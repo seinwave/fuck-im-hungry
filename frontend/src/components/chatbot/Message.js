@@ -1,7 +1,6 @@
 import {Component} from 'react';
 import React from 'react';
-import Human from '../../Assets/human-icon.svg'
-import Robot from '../../Assets/chatbot-icon.svg'
+import Robot from '../../Assets/grinbot-msg.svg'
 
 
 class Message extends Component {
@@ -37,7 +36,7 @@ class Message extends Component {
                 <div className = "row message-row">
                     <img src = {Robot}
                     alt = "robot chat logo"
-                    id = "bot-logo"
+                    id = "msg-logo"
                     ></img>
                 <div className = "col bot-message-col">
                     <span className = "bot-text">

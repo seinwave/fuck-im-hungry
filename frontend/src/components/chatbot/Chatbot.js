@@ -4,6 +4,9 @@ import Message from './Message';
 import Cookies from 'universal-cookie';
 import { withRouter } from 'react-router-dom'
 import {v4 as uuid} from 'uuid';
+import Robot from '../../Assets/grinbot-status.svg';
+import QuickReply from './QuickReply';
+import QuickRepliesContainer from './QuickRepliesContainer'
 
 const cookies = new Cookies();
 
@@ -15,6 +18,7 @@ class Chatbot extends Component {
     // using state to capture / store messages
     constructor(props) {
         super(props);
+        this.messageLength = 1;
         this.handleInput = this.handleInput.bind(this); // makes 'this' work in callback
         this.handleQuickReplyPayload = this.handleQuickReplyPayload.bind(this);
         this.show = this.show.bind(this)
@@ -41,10 +45,11 @@ class Chatbot extends Component {
                 }
             }
         };
-        
+        // resets messageLength, to make delay more reasonable
+        this.setState({messageLength: 1})
         this.setState({messages: [...this.state.messages, says]})
         try {
-            const res = await axios.post('https://14570910389a.ngrok.io/api/df_text_query', 
+            const res = await axios.post('https://6e8e76afa05a.ngrok.io/api/df_text_query', 
             {text, userID: cookies.get('userID')})
 
                 console.log(res.data)
@@ -54,7 +59,11 @@ class Chatbot extends Component {
                     speaker: 'bot',
                     msg: msg
                 }
+                // delay in next message is proportional to the current message's length
+                await this.resolveAfterXSeconds(this.state.messageLength);
+                this.setState({messageLength: msg.text.text[0].length})
                 this.setState({messages: [...this.state.messages, says]})
+                
             }
 
     } catch (e) {
@@ -75,7 +84,7 @@ class Chatbot extends Component {
     async df_event_query(event) {
 
         //this.setState({messages: [...this.state.messages, says]})
-        const res = await axios.post('https://14570910389a.ngrok.io/api/df_event_query', 
+        const res = await axios.post('https://6e8e76afa05a.ngrok.io/api/df_event_query', 
             {event, userID: cookies.get('userID')});
 
         console.log(res);
@@ -85,6 +94,8 @@ class Chatbot extends Component {
                 speaker: 'bot',
                 msg: msg
             }
+            await this.resolveAfterXSeconds(this.state.messageLength);
+            this.setState({messageLength: msg.text.text[0].length})
             this.setState({messages: [...this.state.messages, says]})
         }
     }
@@ -103,11 +114,12 @@ class Chatbot extends Component {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(x)
-            }, x*1000)
+            }, x*25)
         })
     }
 
     async componentDidMount() {
+        this.resolveAfterXSeconds(40);
         this.df_event_query('welcome');
     }
 
@@ -127,21 +139,10 @@ class Chatbot extends Component {
 
     handleQuickReplyPayload(event, payload, text){
         // stops app from following a href link
-   
-     event.preventDefault();
+        event.preventDefault();
         event.stopPropagation();
         
-        switch (payload) {
-            case 'training_masterclass':
-                this.df_event_query('MASTERCLASS');
-                break;
-            case 'recommend_yes':
-                this.df_event_query('SHOW_RECOMMENDATIONS');
-                break;
-            default:
-                this.df_text_query(text);
-                break; 
-        }
+        this.df_text_query(text);
     }
 
     renderOneMessage(message, i) {
@@ -149,9 +150,20 @@ class Chatbot extends Component {
             return <Message 
                 speaker = {message.speaker} 
                 text = {message.msg.text.text}
-                key = {i}
-                wait = {200000} /> // this shit does nooothing
+                key = {i}/> 
         }
+
+        else if (message.msg &&
+            message.msg.payload &&
+            message.msg.payload.fields &&
+            message.msg.payload.fields.quick_replies) {
+                return <QuickRepliesContainer
+                    text = {message.msg.payload.fields.text ? message.msg.payload.fields.text : null}
+                    key = {i}
+                    replyClick = {this.handleQuickReplyPayload}
+                    speaker = {message.speaker}
+                    payload = {message.msg.payload.fields.quick_replies.listValue.values} />;
+            }
         
     }
 
@@ -171,13 +183,30 @@ class Chatbot extends Component {
     
     if (this.state.showBot){
     return (
+
+    
         
         <div className = "container-fluid site-container">
-                <div className = "row header-row">
-                    <div class="col">
+                <div className = "row justify-content-center align-content-center header-row">
+
                         <h3> Fuck I'm Hungry</h3>
+                </div>
+                <div className = "container chatbot-container">
+                    <div className = "row bot-hed-row align-items-center">
+                        <div className = "col-6">
+                            <div className = "row align-items-center">
+                            <img src = {Robot}
+                            alt = "robot chat logo"
+                            id = "bot-logo"
+                            ></img>
+                                <div className = "col">
+                                    <h5 className = "bot-name">Bingebot</h5> 
+                                    <p className = "bot-status"><i>Online</i></p>
+                                </div>
+                            </div>
+                        </div>
+                        <span className="dot"></span>
                     </div>
-                </div> 
                 <div className = "scale-in-center row chatbot-row">   
                     <div className = "col-8 chatbot-col">
                         <div id="chatbot">
@@ -193,7 +222,8 @@ class Chatbot extends Component {
                     placeholder = "Type a message" 
                     ref = {(el) => {this.inputElement = el;}} autofocus="true"/>
                 </div>
-            </div>
+                </div>
+        </div>
     )}
     }
 }
