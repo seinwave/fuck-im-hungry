@@ -6,9 +6,7 @@ import './App.css'
 const App = () => (
         <div>
             <BrowserRouter>
-                <div className = "container">
                     <Chatbot />
-                </div>
             </BrowserRouter>
         </div>
         

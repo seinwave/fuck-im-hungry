@@ -120,22 +120,22 @@ evaluationPost = async (agent) => {
         agent.add('Ah, I see.')
         switch(intervention){
             case "distraction":
-                agent.add("Looks like distraction wasn't effective for you this time.")
+                agent.add("Looks like distraction wasn't effective for you this time. So sorry!")
                 agent.add("Do you want to try something else?")
                 agent.context.set('awaiting_readiness', 3);
                 break;
             case "self-talk":
-                agent.add("Looks like self-talk didn't quite work out.")
+                agent.add("Looks like self-talk didn't quite work out. So sorry!")
                 agent.add("Do you want to try something else?")
                 agent.context.set('awaiting_readiness', 3);
                 break;
             case "surfing":
-                agent.add("Hmm, surfing didn't quite do it this time around.")
+                agent.add("Hmm, surfing didn't quite do it this time around. So sorry!")
                 agent.add("Do you want to try something else?")
                 agent.context.set('awaiting_readiness', 3);
                 break;
             case "pro-con-list":
-                agent.add("Making a pro / con list didn't work for you.")
+                agent.add("Making a pro / con list didn't work for you. So sorry!")
                 agent.add("Do you want to try something else?")
                 agent.context.set('awaiting_readiness', 3);
                 break;

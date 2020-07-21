@@ -1,48 +1,35 @@
 import {Component} from 'react';
 import React from 'react';
-import Robot from '../../Assets/grinbot-msg.svg'
+import ChatFace from './images/ChatFace.js'
 
 
 class Message extends Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            props
+        }
     }
-
-    getInitialState() {
-        return ({hidden : "hidden"})
-    }
-
-    componentWillMount() {
-        var that = this;
-        setTimeout(function() {
-            that.show();
-        }, that.props.wait);
-    }
-
-    show() {
-        this.setState({hidden: ""})
-    }
-
 
 
     render() {
 
+        let emotion = this.props.emotion; 
 
         return (
             <div className = "chat">
-                {this.props.speaker === 'bot' &&
-                <div className = {this.props.hidden}> 
+                {this.props.speaker === 'bot' && 
                 <div className = "row message-row">
-                    <img src = {Robot}
-                    alt = "robot chat logo"
-                    id = "msg-logo"
+                <img
+                    key={ChatFace[emotion].id} 
+                    src={ChatFace[emotion].src} 
+                    alt={ChatFace[emotion].alt}  
                     ></img>
                 <div className = "col bot-message-col">
                     <span className = "bot-text">
                         {this.props.text}
                     </span>
-                </div>
                 </div>
                 </div>
                 }

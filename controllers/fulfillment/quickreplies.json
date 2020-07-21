@@ -1,0 +1,13 @@
+{
+    "text": "It'll be a challenge, but maybe we can make it easier. We can try a few different techniques to prevent a bingefest. They each take about 15 minutes. Do you have time for that right now?",
+    "quick_replies": [
+      {
+        "payload": "choosing-technique",
+        "text": "Yes."
+      },
+      {
+        "payload": "no-activity",
+        "text": "No."
+      }
+    ]
+  }

@@ -4,9 +4,8 @@ import Message from './Message';
 import Cookies from 'universal-cookie';
 import { withRouter } from 'react-router-dom'
 import {v4 as uuid} from 'uuid';
-import Robot from '../../Assets/grinbot-status.svg';
-import QuickReply from './QuickReply';
-import QuickRepliesContainer from './QuickRepliesContainer'
+import QuickRepliesContainer from './QuickRepliesContainer';
+import BannerFace from './images/BannerFace';
 
 const cookies = new Cookies();
 
@@ -21,22 +20,23 @@ class Chatbot extends Component {
         this.messageLength = 1;
         this.handleInput = this.handleInput.bind(this); // makes 'this' work in callback
         this.handleQuickReplyPayload = this.handleQuickReplyPayload.bind(this);
-        this.show = this.show.bind(this)
-        this.hide = this.hide.bind(this)
         this.state = {
             messages: [],
+            quickReplies: [],
             shopWelcomeSent: false,
-            showBot: true
+            showBot: true,
+            emotion: 3
         }
 
         if (cookies.get('userID') === undefined){
             cookies.set('userID', uuid(), {path: '/'}); //sets user cookie session to randomly generated number
         }    
     }
-
     
+
     // defining api calls (note: must be asynchronous)
     async df_text_query(text) {
+        this.setState({quickReplies: []})
         let says = {
             speaker: 'me',
             msg: {
@@ -49,12 +49,22 @@ class Chatbot extends Component {
         this.setState({messageLength: 1})
         this.setState({messages: [...this.state.messages, says]})
         try {
-            const res = await axios.post('https://6e8e76afa05a.ngrok.io/api/df_text_query', 
+            const res = await axios.post('https://89fb671356c3.ngrok.io/api/df_text_query', 
             {text, userID: cookies.get('userID')})
 
-                console.log(res.data)
+            let emotionValue; 
+
+            //console.log("fulfillment messages are: ", res.data[0].queryResult.fulfillmentMessages)
+            
+            if (res.data[0].queryResult.intent.displayName.replace( /[^\d.]/g, '' ) !== ''){
+            emotionValue = parseInt(res.data[0].queryResult.intent.displayName.replace( /[^\d.]/g, '' ));
+            this.setState({emotion: emotionValue})
+            }
+
+            else {this.setState({emotion: 3})};
             
             for (let msg of res.data[0].queryResult.fulfillmentMessages) {
+                if (msg.text){
                 says = {
                     speaker: 'bot',
                     msg: msg
@@ -63,7 +73,12 @@ class Chatbot extends Component {
                 await this.resolveAfterXSeconds(this.state.messageLength);
                 this.setState({messageLength: msg.text.text[0].length})
                 this.setState({messages: [...this.state.messages, says]})
-                
+                }
+
+                else if (msg.quickReplies){
+                    this.setState({quickReplies: msg.quickReplies.quickReplies})
+                    console.log(this.state.quickReplies)
+                }
             }
 
     } catch (e) {
@@ -84,31 +99,20 @@ class Chatbot extends Component {
     async df_event_query(event) {
 
         //this.setState({messages: [...this.state.messages, says]})
-        const res = await axios.post('https://6e8e76afa05a.ngrok.io/api/df_event_query', 
+        const res = await axios.post('https://89fb671356c3.ngrok.io/api/df_event_query', 
             {event, userID: cookies.get('userID')});
-
-        console.log(res);
         
         for (let msg of res.data[0].queryResult.fulfillmentMessages) {
             let says = {
                 speaker: 'bot',
                 msg: msg
             }
-            await this.resolveAfterXSeconds(this.state.messageLength);
+            //await this.resolveAfterXSeconds(this.state.messageLength);
             this.setState({messageLength: msg.text.text[0].length})
             this.setState({messages: [...this.state.messages, says]})
         }
     }
 
-    show(e) {
-        e.preventDefault()
-        this.setState({showBot: true})
-    }
-
-    hide(e) {
-        e.preventDefault()
-        this.setState({showBot: false})
-    }
 
     resolveAfterXSeconds(x){
         return new Promise(resolve => {
@@ -137,38 +141,51 @@ class Chatbot extends Component {
         }
     }
 
-    handleQuickReplyPayload(event, payload, text){
+    handleQuickReplyPayload(event, text){
         // stops app from following a href link
         event.preventDefault();
         event.stopPropagation();
-        
         this.df_text_query(text);
     }
 
     renderOneMessage(message, i) {
-        if (message.msg && message.msg.text && message.msg.text.text){
+        let x = 0; 
+        if (this.state.quickReplies.length === 0) {
+            if (message.msg && message.msg.text && message.msg.text.text){
             return <Message 
                 speaker = {message.speaker} 
                 text = {message.msg.text.text}
-                key = {i}/> 
-        }
-
-        else if (message.msg &&
-            message.msg.payload &&
-            message.msg.payload.fields &&
-            message.msg.payload.fields.quick_replies) {
-                return <QuickRepliesContainer
-                    text = {message.msg.payload.fields.text ? message.msg.payload.fields.text : null}
-                    key = {i}
-                    replyClick = {this.handleQuickReplyPayload}
-                    speaker = {message.speaker}
-                    payload = {message.msg.payload.fields.quick_replies.listValue.values} />;
+                key = {i}
+                emotion = {this.state.emotion} /> 
             }
+        }
+        else while (x <= this.state.quickReplies.length+1 ){
+            x++; 
+            return <QuickRepliesContainer
+                key = {i}
+                speaker = {'bot'}
+                text = {this.state.quickReplies ? this.state.quickReplies : null}
+                replyClick = {this.handleQuickReplyPayload}
+            /> 
+         }
+        }
         
-    }
+        // if (message.msg.quickReplies) {
+        //         //console.log('quickreply firing')
+
+
+        //         return <QuickRepliesContainer
+        //             text = {message.msg.quickReplies.quickReplies}
+        //             key = {i}
+        //             replyClick = {this.handleQuickReplyPayload}
+        //             speaker = {message.speaker}
+        //             />;
+        //     }
+        
 
     renderMessages(stateMessages) {
         if (stateMessages){
+            console.log('stateMessages are: ', stateMessages)
             return stateMessages.map((message,i) => {
                 return this.renderOneMessage(message, i)
         })
@@ -179,7 +196,11 @@ class Chatbot extends Component {
     
     }
 
+     
+
     render(){
+
+    let emotion = this.state.emotion;
     
     if (this.state.showBot){
     return (
@@ -195,9 +216,10 @@ class Chatbot extends Component {
                     <div className = "row bot-hed-row align-items-center">
                         <div className = "col-6">
                             <div className = "row align-items-center">
-                            <img src = {Robot}
-                            alt = "robot chat logo"
-                            id = "bot-logo"
+                            <img
+                            key={BannerFace[emotion].id} 
+                            src={BannerFace[emotion].src} 
+                            alt={BannerFace[emotion].alt}  
                             ></img>
                                 <div className = "col">
                                     <h5 className = "bot-name">Bingebot</h5> 

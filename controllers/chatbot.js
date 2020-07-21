@@ -32,13 +32,20 @@ const textQuery = async (text, userID, parameters = {}) => {
         queryParams: {
             payload: {
                 data: parameters
+                // fields: {
+                //     source: {
+                //         stringValue: 'PLATFORM_UNSPECIFIED',
+                //         kind: 'stringValue'
+                //     }
+                // }
             }
         }
     };
 
+    
+
     let responses = await sessionClient
         .detectIntent(request);
-        console.log(responses);
         return responses
 
         // .catch((error) => {

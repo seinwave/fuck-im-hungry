@@ -7,9 +7,8 @@ class QuickRepliesContainer extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(event, payload, text) {
-
-        this.props.replyClick(event,payload,text)
+    handleClick(event, text) {
+        this.props.replyClick(event, text)
     }
 
     renderQuickReply(reply, i){
@@ -29,11 +28,7 @@ class QuickRepliesContainer extends Component {
     render() {
         return (
             <div id="quick-replies" className="col s10">
-                {this.props.text && <p>
-                    {this.props.text.stringValue}
-                    </p>
-                    }
-                    {this.renderQuickReplies(this.props.payload)}
+                    {this.renderQuickReplies(this.props.text)}
             </div>
         )
     }
