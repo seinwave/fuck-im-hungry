@@ -25,7 +25,8 @@ class Chatbot extends Component {
             quickReplies: [],
             shopWelcomeSent: false,
             showBot: true,
-            emotion: 3
+            emotion: 3,
+            success: false
         }
 
         if (cookies.get('userID') === undefined){
@@ -53,8 +54,6 @@ class Chatbot extends Component {
             {text, userID: cookies.get('userID')})
 
             let emotionValue; 
-
-            //console.log("fulfillment messages are: ", res.data[0].queryResult.fulfillmentMessages)
             
             if (res.data[0].queryResult.intent.displayName.replace( /[^\d.]/g, '' ) !== ''){
             emotionValue = parseInt(res.data[0].queryResult.intent.displayName.replace( /[^\d.]/g, '' ));
@@ -69,6 +68,13 @@ class Chatbot extends Component {
                     speaker: 'bot',
                     msg: msg
                 }
+                if (msg.text.text[0].includes('significant') || msg.text.text[0].includes('Victory!')){
+                    this.aSuccess();
+                }
+
+                if (msg.text.text[0].includes('technique')){
+                    this.unSuccess();
+                }
                 // delay in next message is proportional to the current message's length
                 await this.resolveAfterXSeconds(this.state.messageLength);
                 this.setState({messageLength: msg.text.text[0].length})
@@ -77,7 +83,6 @@ class Chatbot extends Component {
 
                 else if (msg.quickReplies){
                     this.setState({quickReplies: msg.quickReplies.quickReplies})
-                    console.log(this.state.quickReplies)
                 }
             }
 
@@ -107,9 +112,16 @@ class Chatbot extends Component {
                 speaker: 'bot',
                 msg: msg
             }
-            //await this.resolveAfterXSeconds(this.state.messageLength);
+
+            if (msg.quickReplies){
+                this.setState({quickReplies: msg.quickReplies.quickReplies})
+            }
+
+            if (msg.text){
+            await this.resolveAfterXSeconds(this.state.messageLength);
             this.setState({messageLength: msg.text.text[0].length})
             this.setState({messages: [...this.state.messages, says]})
+            }
         }
     }
 
@@ -125,6 +137,7 @@ class Chatbot extends Component {
     async componentDidMount() {
         this.resolveAfterXSeconds(40);
         this.df_event_query('welcome');
+        
     }
 
     componentDidUpdate() {
@@ -132,6 +145,17 @@ class Chatbot extends Component {
         if (this.talkInput){
         this.inputElement.focus();
         }
+        
+    }
+
+    aSuccess() { 
+        this.setState({emotion: 5})
+        this.setState({success: true})
+        document.body.style.backgroundImage = "url(./Assets/confetti.gif)"
+    }
+
+    unSuccess() {
+        document.body.style.backgroundImage = ""
     }
 
     handleInput(e) {
@@ -148,47 +172,31 @@ class Chatbot extends Component {
         this.df_text_query(text);
     }
 
-    renderOneMessage(message, i) {
-        let x = 0; 
-        if (this.state.quickReplies.length === 0) {
-            if (message.msg && message.msg.text && message.msg.text.text){
-            return <Message 
-                speaker = {message.speaker} 
-                text = {message.msg.text.text}
-                key = {i}
-                emotion = {this.state.emotion} /> 
-            }
+    renderOneMessage(message, i) { 
+        if (message.msg && message.msg.text && message.msg.text.text){
+
+        return <Message 
+            speaker = {message.speaker} 
+            text = {message.msg.text.text}
+            key = {i}
+            emotion = {this.state.emotion} /> 
         }
-        else while (x <= this.state.quickReplies.length+1 ){
-            x++; 
-            return <QuickRepliesContainer
+    }
+
+    renderQuickReplies(quickReplies, i) {
+        return <QuickRepliesContainer
                 key = {i}
                 speaker = {'bot'}
                 text = {this.state.quickReplies ? this.state.quickReplies : null}
                 replyClick = {this.handleQuickReplyPayload}
             /> 
-         }
-        }
-        
-        // if (message.msg.quickReplies) {
-        //         //console.log('quickreply firing')
-
-
-        //         return <QuickRepliesContainer
-        //             text = {message.msg.quickReplies.quickReplies}
-        //             key = {i}
-        //             replyClick = {this.handleQuickReplyPayload}
-        //             speaker = {message.speaker}
-        //             />;
-        //     }
-        
-
+    }
+            
     renderMessages(stateMessages) {
         if (stateMessages){
-            console.log('stateMessages are: ', stateMessages)
             return stateMessages.map((message,i) => {
                 return this.renderOneMessage(message, i)
-        })
+        })             
     }
         else {
             return null;
@@ -205,8 +213,6 @@ class Chatbot extends Component {
     if (this.state.showBot){
     return (
 
-    
-        
         <div className = "container-fluid site-container">
                 <div className = "row justify-content-center align-content-center header-row">
 
@@ -233,6 +239,7 @@ class Chatbot extends Component {
                     <div className = "col-8 chatbot-col">
                         <div id="chatbot">
                             {this.renderMessages(this.state.messages)}
+                            {this.renderQuickReplies(this.state.quickReplies)}
                             <div ref = {(el) => {this.messagesEnd = el;}}>
                             </div>
                         </div>
@@ -242,7 +249,7 @@ class Chatbot extends Component {
                 <input
                     type = "text" onKeyPress = {this.handleInput}
                     placeholder = "Type a message" 
-                    ref = {(el) => {this.inputElement = el;}} autofocus="true"/>
+                    ref = {(el) => {this.inputElement = el;}} autoFocus={true}/>
                 </div>
                 </div>
         </div>

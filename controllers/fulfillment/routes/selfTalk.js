@@ -1,4 +1,4 @@
-const { WebhookClient } = require('dialogflow-fulfillment');
+const { WebhookClient, Suggestion } = require('dialogflow-fulfillment');
 const mongoose = require('mongoose');
 const Craving = mongoose.model('cravings')
 const nlp = require('compromise');
@@ -22,7 +22,9 @@ selfTalk = async (agent) => {
 
     agent.add(`You rated your cravings at an ${preScore}. Why don't we start there? Say, out loud, "I rate my craving at a ${preScore} out of 10." Or, "I'd say my urge to binge is at about ${numberWord} percent."`)
     agent.add("Let me know when you've done that.")
-    agent.context.set('selftalk-3', 1);
+    agent.add(new Suggestion("All done."));
+    agent.context.set('selftalk-two', 1);
+    agent.context.set('selftalk-three', 1);
 }
 
 module.exports = {

@@ -27,8 +27,8 @@ class QuickRepliesContainer extends Component {
 
     render() {
         return (
-            <div id="quick-replies" className="col s10">
-                    {this.renderQuickReplies(this.props.text)}
+            <div id="quick-replies" className="row justify-content-end">
+                {this.renderQuickReplies(this.props.text)}
             </div>
         )
     }

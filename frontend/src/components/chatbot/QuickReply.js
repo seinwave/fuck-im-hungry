@@ -4,15 +4,19 @@ import React from 'react';
 const QuickReply = (props) => {
 
         return (
-            <a style={{ margin: 3}} href="/" className="btn btn-primary"
-               onClick={(event) =>
-                   props.click(
-                       event,
-                       props.reply
-                   )
-               }>
-                {props.reply}
-            </a>
+            <div className = "reply-col">
+                <a style={{ margin: 3}} href="/" 
+                className="btn btn-primary"
+                id = "choice-btn"
+                onClick={(event) =>
+                    props.click(
+                        event,
+                        props.reply
+                    )
+                }>
+                    {props.reply}
+                </a>
+            </div>
         );
     };
 

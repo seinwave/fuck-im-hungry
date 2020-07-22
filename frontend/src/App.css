@@ -141,22 +141,18 @@ input:focus{
   box-shadow: 2px 2px 2px rgb(179, 178, 178);
 }
 
-.hidden{
-  display: none;
+.reply-col{
+  margin-left: 3rem;
 }
 
+#choice-btn {
+  background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%);
+  border: none;
+  box-shadow: 2px 2px 2px rgb(179, 178, 178);
+  border-radius: 25px;
+  margin-left: 2rem;
+}
 
-/* .human-text:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  bottom: 0;
-  left: -10px;
-  width: 10px;
-  height: 20px;
-  background: white;
-  border-bottom-right-radius: 10px;
-} */
 
 .App-header {
   background-color: #282c34;

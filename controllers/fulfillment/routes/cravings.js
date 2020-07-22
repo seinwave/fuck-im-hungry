@@ -1,4 +1,4 @@
-const { WebhookClient, Card, Suggestion } = require('dialogflow-fulfillment');
+const { WebhookClient, Suggestion } = require('dialogflow-fulfillment');
 const mongoose = require('mongoose');
 const Craving = mongoose.model('cravings')
 const nlp = require('compromise');
