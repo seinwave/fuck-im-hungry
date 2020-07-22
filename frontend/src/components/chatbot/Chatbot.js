@@ -72,7 +72,7 @@ class Chatbot extends Component {
                     this.aSuccess();
                 }
 
-                if (msg.text.text[0].includes('technique')){
+                if (msg.text.text[0].includes('technique') || msg.text.text[0].includes('activity')){
                     this.unSuccess();
                 }
                 // delay in next message is proportional to the current message's length
