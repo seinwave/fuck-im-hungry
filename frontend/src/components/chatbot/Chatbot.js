@@ -50,7 +50,7 @@ class Chatbot extends Component {
         this.setState({messageLength: 1})
         this.setState({messages: [...this.state.messages, says]})
         try {
-            const res = await axios.post('https://89fb671356c3.ngrok.io/api/df_text_query', 
+            const res = await axios.post('https://bingebot.herokuapp.com/api/df_text_query', 
             {text, userID: cookies.get('userID')})
 
             let emotionValue; 
