@@ -16,7 +16,7 @@ body {
 .chatbot-container {
   margin-top: 1rem;
   border-radius: 15px;
-  box-shadow: 1px 1px 1px 1px lightgray;
+  box-shadow: 0px 4px 2px -2px lightgray;
 }
 
 .bot-hed-row {
@@ -63,18 +63,34 @@ body {
   }
 }
 
-.chatbot-row {
-  display: flex;
-  flex-direction: column;
-  height: 50vh;
-  margin-bottom: 1rem;
-  background-image: url('./Assets/what-the-hex.png');
-  overflow-y: auto;
-  scrollbar-width: none;  /* Firefox */
-  padding: 1rem;
-  padding-right: 15px;
-  width: 30rem;
-  border-bottom: 3px solid silver;
+  .chatbot-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    background-image: url('./Assets/what-the-hex.png');
+    overflow-y: auto;
+    scrollbar-width: none;  /* Firefox */
+    padding: 1rem;
+    padding-right: 15px;
+    border-bottom: 3px solid silver;
+    height: 60vh;
+  }
+
+@media screen and (min-width: 950px){
+  .chatbot-row{
+    height: 60vh;
+    width: 30rem;
+  }
+} 
+  
+@media screen and (min-width: 100px) and (max-width: 949px) {
+  .chatbow-row{
+  width: 20rem;
+  } 
+}
+
+.load-images{
+  display: none;
 }
 
 .input-row {
@@ -166,19 +182,8 @@ input:focus{
 }
 
 ::-webkit-scrollbar {
-  width: 0px;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
+  width: 0px;  /* Removes scrollbar space */
+  background: transparent;  /* Makes scrollbar invisible */
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

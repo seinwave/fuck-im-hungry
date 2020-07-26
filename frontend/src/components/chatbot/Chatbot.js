@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom'
 import {v4 as uuid} from 'uuid';
 import QuickRepliesContainer from './QuickRepliesContainer';
 import BannerFace from './images/BannerFace';
+import ChatFace from './images/ChatFace'
 
 const cookies = new Cookies();
 
@@ -130,7 +131,7 @@ class Chatbot extends Component {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(x)
-            }, x*25)
+            }, x*35)
         })
     }
 
@@ -212,7 +213,7 @@ class Chatbot extends Component {
     
     if (this.state.showBot){
     return (
-
+        <div>
         <div className = "container-fluid site-container">
                 <div className = "row justify-content-center align-content-center header-row">
 
@@ -253,6 +254,25 @@ class Chatbot extends Component {
                 </div>
                 </div>
         </div>
+        <div>
+            <img className = "load-images" src = {BannerFace[0].src}></img>
+                    <img className = "load-images" src = {BannerFace[1].src}></img>
+                    <img className = "load-images" src = {BannerFace[2].src}></img>
+                    <img className = "load-images" src = {BannerFace[3].src}></img>
+                    <img className = "load-images" src = {BannerFace[4].src}></img>
+                    <img className = "load-images" src = {BannerFace[5].src}></img>
+                    <img className = "load-images" src = {BannerFace[6].src}></img>
+
+                    <img className = "load-images" src = {ChatFace[0].src}></img>
+                    <img className = "load-images" src = {ChatFace[1].src}></img>
+                    <img className = "load-images" src = {ChatFace[2].src}></img>
+                    <img className = "load-images" src = {ChatFace[3].src}></img>
+                    <img className = "load-images" src = {ChatFace[4].src}></img>
+                    <img className = "load-images" src = {ChatFace[5].src}></img>
+                    <img className = "load-images" src = {ChatFace[6].src}></img>
+        </div>
+    </div>
+        
     )}
     }
 }
