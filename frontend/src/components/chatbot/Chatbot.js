@@ -104,7 +104,7 @@ class Chatbot extends Component {
     async df_event_query(event) {
 
         //this.setState({messages: [...this.state.messages, says]})
-        const res = await axios.post('https://89fb671356c3.ngrok.io/api/df_event_query', 
+        const res = await axios.post('https://bingebot.herokuapp.com/api/df_event_query', 
             {event, userID: cookies.get('userID')});
         
         for (let msg of res.data[0].queryResult.fulfillmentMessages) {
