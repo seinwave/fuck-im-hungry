@@ -131,7 +131,7 @@ class Chatbot extends Component {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve(x)
-            }, x*35)
+            }, x*40)
         })
     }
 
@@ -256,20 +256,20 @@ class Chatbot extends Component {
         </div>
         <div>
             <img className = "load-images" src = {BannerFace[0].src}></img>
-                    <img className = "load-images" src = {BannerFace[1].src}></img>
-                    <img className = "load-images" src = {BannerFace[2].src}></img>
-                    <img className = "load-images" src = {BannerFace[3].src}></img>
-                    <img className = "load-images" src = {BannerFace[4].src}></img>
-                    <img className = "load-images" src = {BannerFace[5].src}></img>
-                    <img className = "load-images" src = {BannerFace[6].src}></img>
+                    <img alt = "" className = "load-images" src = {BannerFace[1].src}></img>
+                    <img alt = "" className = "load-images" src = {BannerFace[2].src}></img>
+                    <img alt = "" className = "load-images" src = {BannerFace[3].src}></img>
+                    <img alt = "" className = "load-images" src = {BannerFace[4].src}></img>
+                    <img alt = "" className = "load-images" src = {BannerFace[5].src}></img>
+                    <img alt = "" className = "load-images" src = {BannerFace[6].src}></img>
 
-                    <img className = "load-images" src = {ChatFace[0].src}></img>
-                    <img className = "load-images" src = {ChatFace[1].src}></img>
-                    <img className = "load-images" src = {ChatFace[2].src}></img>
-                    <img className = "load-images" src = {ChatFace[3].src}></img>
-                    <img className = "load-images" src = {ChatFace[4].src}></img>
-                    <img className = "load-images" src = {ChatFace[5].src}></img>
-                    <img className = "load-images" src = {ChatFace[6].src}></img>
+                    <img alt = "" className = "load-images" src = {ChatFace[0].src}></img>
+                    <img alt = "" className = "load-images" src = {ChatFace[1].src}></img>
+                    <img alt = "" className = "load-images" src = {ChatFace[2].src}></img>
+                    <img alt = "" className = "load-images" src = {ChatFace[3].src}></img>
+                    <img alt = "" className = "load-images" src = {ChatFace[4].src}></img>
+                    <img alt = "" className = "load-images" src = {ChatFace[5].src}></img>
+                    <img alt = "" className = "load-images" src = {ChatFace[6].src}></img>
         </div>
     </div>
         

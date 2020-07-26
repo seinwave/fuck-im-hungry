@@ -74,21 +74,16 @@ body {
     padding-right: 15px;
     border-bottom: 3px solid silver;
     height: 60vh;
+    width: 20rem;
   }
 
 @media screen and (min-width: 950px){
   .chatbot-row{
-    height: 60vh;
+    height: 50vh;
     width: 30rem;
   }
 } 
   
-@media screen and (min-width: 100px) and (max-width: 949px) {
-  .chatbow-row{
-  width: 20rem;
-  } 
-}
-
 .load-images{
   display: none;
 }
