@@ -68,7 +68,7 @@ const fulfillment = async (req, res) => {
     intentMap.set('procon-list-count-for4', fa.forAgainst);
     intentMap.set('procon-list-count-against-pers-against', gr.ready);
     intentMap.set('procon-list-count-against-pers-for4', gr.ready);
-    intentMap.set('procon-list-count-for-persuasion-for', gr.ready);
+    intentMap.set('procon-list-count-for-persuasion-for4', gr.ready);
     intentMap.set('procon-list-count-for-persuasion-against', gr.ready);
     
     // evaluation routes
