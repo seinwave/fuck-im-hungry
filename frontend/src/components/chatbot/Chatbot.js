@@ -234,7 +234,7 @@ class Chatbot extends Component {
         <div className = "container-fluid site-container">
                 <div className = "row justify-content-center align-content-center header-row">
 
-                        <h3> Fuck I'm Hungry</h3>
+                        <h3> Fuck, I'm Hungry.</h3>
                 </div>
                 <div className = "container chatbot-container">
                     <div className = "row bot-hed-row align-items-center">
