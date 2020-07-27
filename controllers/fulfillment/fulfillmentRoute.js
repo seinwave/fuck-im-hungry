@@ -65,9 +65,9 @@ const fulfillment = async (req, res) => {
     intentMap.set('procon-initialize', ch.theChoice);
     intentMap.set('procon-task-done', fa.forAgainst);
     intentMap.set('procon-list-count-against', fa.forAgainst);
-    intentMap.set('procon-list-count-for', fa.forAgainst);
+    intentMap.set('procon-list-count-for4', fa.forAgainst);
     intentMap.set('procon-list-count-against-pers-against', gr.ready);
-    intentMap.set('procon-list-count-against-pers-for', gr.ready);
+    intentMap.set('procon-list-count-against-pers-for4', gr.ready);
     intentMap.set('procon-list-count-for-persuasion-for', gr.ready);
     intentMap.set('procon-list-count-for-persuasion-against', gr.ready);
     
