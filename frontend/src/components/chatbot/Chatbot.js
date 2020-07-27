@@ -23,6 +23,7 @@ class Chatbot extends Component {
         this.handleQuickReplyPayload = this.handleQuickReplyPayload.bind(this);
         this.state = {
             messages: [],
+            emotionCount: 0,
             quickReplies: [],
             shopWelcomeSent: false,
             showBot: true,
@@ -58,10 +59,10 @@ class Chatbot extends Component {
             
             if (res.data[0].queryResult.intent.displayName.replace( /[^\d.]/g, '' ) !== ''){
             emotionValue = parseInt(res.data[0].queryResult.intent.displayName.replace( /[^\d.]/g, '' ));
-            this.setState({emotion: emotionValue})
+            this.emotionHandler(emotionValue);
             }
 
-            else {this.setState({emotion: 3})};
+            else this.emotionHandler(3);
             
             for (let msg of res.data[0].queryResult.fulfillmentMessages) {
                 if (msg.text){
@@ -76,6 +77,7 @@ class Chatbot extends Component {
                 if (msg.text.text[0].includes('technique') || msg.text.text[0].includes('activity')){
                     this.unSuccess();
                 }
+
                 // delay in next message is proportional to the current message's length
                 await this.resolveAfterXSeconds(this.state.messageLength);
                 this.setState({messageLength: msg.text.text[0].length})
@@ -92,7 +94,7 @@ class Chatbot extends Component {
             speaks: 'bot',
             msg: {
                 text : {
-                    text: "I'm having troubles. I need to terminate. will be back later"
+                    text: "Sorry, something went wrong. Try refreshing me."
                 }
             }
         }
@@ -126,6 +128,11 @@ class Chatbot extends Component {
         }
     }
 
+    emotionHandler(x){
+        this.setState({emotion: x})
+        this.setState({emotionCount: this.state.messages.length + 3});
+    }
+
 
     resolveAfterXSeconds(x){
         return new Promise(resolve => {
@@ -136,7 +143,7 @@ class Chatbot extends Component {
     }
 
     async componentDidMount() {
-        this.resolveAfterXSeconds(40);
+        this.resolveAfterXSeconds(5);
         this.df_event_query('welcome');
         
     }
@@ -146,7 +153,10 @@ class Chatbot extends Component {
         if (this.talkInput){
         this.inputElement.focus();
         }
-        
+
+        if (this.state.messages.length === this.state.emotionCount){
+            this.emotionHandler(3);
+        } 
     }
 
     aSuccess() { 
@@ -175,7 +185,6 @@ class Chatbot extends Component {
 
     renderOneMessage(message, i) { 
         if (message.msg && message.msg.text && message.msg.text.text){
-
         return <Message 
             speaker = {message.speaker} 
             text = {message.msg.text.text}
@@ -195,7 +204,7 @@ class Chatbot extends Component {
             
     renderMessages(stateMessages) {
         if (stateMessages){
-            return stateMessages.map((message,i) => {
+            return stateMessages.map((message,i) => {  
                 return this.renderOneMessage(message, i)
         })             
     }
@@ -255,21 +264,21 @@ class Chatbot extends Component {
                 </div>
         </div>
         <div>
-            <img className = "load-images" src = {BannerFace[0].src}></img>
-                    <img alt = "" className = "load-images" src = {BannerFace[1].src}></img>
-                    <img alt = "" className = "load-images" src = {BannerFace[2].src}></img>
-                    <img alt = "" className = "load-images" src = {BannerFace[3].src}></img>
-                    <img alt = "" className = "load-images" src = {BannerFace[4].src}></img>
-                    <img alt = "" className = "load-images" src = {BannerFace[5].src}></img>
-                    <img alt = "" className = "load-images" src = {BannerFace[6].src}></img>
+            <img alt = "" className = "load-images" src = {BannerFace[0].src}></img>
+            <img alt = "" className = "load-images" src = {BannerFace[1].src}></img>
+            <img alt = "" className = "load-images" src = {BannerFace[2].src}></img>
+            <img alt = "" className = "load-images" src = {BannerFace[3].src}></img>
+            <img alt = "" className = "load-images" src = {BannerFace[4].src}></img>
+            <img alt = "" className = "load-images" src = {BannerFace[5].src}></img>
+            <img alt = "" className = "load-images" src = {BannerFace[6].src}></img>
 
-                    <img alt = "" className = "load-images" src = {ChatFace[0].src}></img>
-                    <img alt = "" className = "load-images" src = {ChatFace[1].src}></img>
-                    <img alt = "" className = "load-images" src = {ChatFace[2].src}></img>
-                    <img alt = "" className = "load-images" src = {ChatFace[3].src}></img>
-                    <img alt = "" className = "load-images" src = {ChatFace[4].src}></img>
-                    <img alt = "" className = "load-images" src = {ChatFace[5].src}></img>
-                    <img alt = "" className = "load-images" src = {ChatFace[6].src}></img>
+            <img alt = "" className = "load-images" src = {ChatFace[0].src}></img>
+            <img alt = "" className = "load-images" src = {ChatFace[1].src}></img>
+            <img alt = "" className = "load-images" src = {ChatFace[2].src}></img>
+            <img alt = "" className = "load-images" src = {ChatFace[3].src}></img>
+            <img alt = "" className = "load-images" src = {ChatFace[4].src}></img>
+            <img alt = "" className = "load-images" src = {ChatFace[5].src}></img>
+            <img alt = "" className = "load-images" src = {ChatFace[6].src}></img>
         </div>
     </div>
         

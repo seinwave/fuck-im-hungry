@@ -29,7 +29,7 @@ const fulfillment = async (req, res) => {
     intentMap.set('craving-0', gy.yesNo);
     intentMap.set('craving--emotion5', zt.zeroToTen)
     intentMap.set('craving-moderate', cr.cravings);
-    intentMap.set('craving-extreme', cr.cravings);
+    intentMap.set('craving-extreme4', cr.cravings);
     intentMap.set('craving-mild', cr.cravings);
     intentMap.set('craving-strong', cr.cravings);
     intentMap.set('choosing-technique', se.selection)
