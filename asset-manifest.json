@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.c40c0efa.chunk.css",
-    "main.js": "/static/js/main.d5cffe73.chunk.js",
-    "main.js.map": "/static/js/main.d5cffe73.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.c8a21426.js",
-    "runtime-main.js.map": "/static/js/runtime-main.c8a21426.js.map",
-    "static/css/2.829c9cb5.chunk.css": "/static/css/2.829c9cb5.chunk.css",
-    "static/js/2.fcf8eea1.chunk.js": "/static/js/2.fcf8eea1.chunk.js",
-    "static/js/2.fcf8eea1.chunk.js.map": "/static/js/2.fcf8eea1.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.a08fc603165b6ac6c574f730ca3ee9b0.js": "/precache-manifest.a08fc603165b6ac6c574f730ca3ee9b0.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.829c9cb5.chunk.css.map": "/static/css/2.829c9cb5.chunk.css.map",
-    "static/css/main.c40c0efa.chunk.css.map": "/static/css/main.c40c0efa.chunk.css.map",
-    "static/js/2.fcf8eea1.chunk.js.LICENSE.txt": "/static/js/2.fcf8eea1.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/static/media/what-the-hex.6633a16d.png"
+    "main.css": "/fuck-im-hungry/static/css/main.d9e4ae74.chunk.css",
+    "main.js": "/fuck-im-hungry/static/js/main.25335ede.chunk.js",
+    "main.js.map": "/fuck-im-hungry/static/js/main.25335ede.chunk.js.map",
+    "runtime-main.js": "/fuck-im-hungry/static/js/runtime-main.ef94ad4f.js",
+    "runtime-main.js.map": "/fuck-im-hungry/static/js/runtime-main.ef94ad4f.js.map",
+    "static/css/2.829c9cb5.chunk.css": "/fuck-im-hungry/static/css/2.829c9cb5.chunk.css",
+    "static/js/2.d131bfe2.chunk.js": "/fuck-im-hungry/static/js/2.d131bfe2.chunk.js",
+    "static/js/2.d131bfe2.chunk.js.map": "/fuck-im-hungry/static/js/2.d131bfe2.chunk.js.map",
+    "index.html": "/fuck-im-hungry/index.html",
+    "precache-manifest.a6a6565993c71b18ca5cc67fd1bc26da.js": "/fuck-im-hungry/precache-manifest.a6a6565993c71b18ca5cc67fd1bc26da.js",
+    "service-worker.js": "/fuck-im-hungry/service-worker.js",
+    "static/css/2.829c9cb5.chunk.css.map": "/fuck-im-hungry/static/css/2.829c9cb5.chunk.css.map",
+    "static/css/main.d9e4ae74.chunk.css.map": "/fuck-im-hungry/static/css/main.d9e4ae74.chunk.css.map",
+    "static/js/2.d131bfe2.chunk.js.LICENSE.txt": "/fuck-im-hungry/static/js/2.d131bfe2.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/fuck-im-hungry/static/media/what-the-hex.6633a16d.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.c8a21426.js",
+    "static/js/runtime-main.ef94ad4f.js",
     "static/css/2.829c9cb5.chunk.css",
-    "static/js/2.fcf8eea1.chunk.js",
-    "static/css/main.c40c0efa.chunk.css",
-    "static/js/main.d5cffe73.chunk.js"
+    "static/js/2.d131bfe2.chunk.js",
+    "static/css/main.d9e4ae74.chunk.css",
+    "static/js/main.25335ede.chunk.js"
   ]
 }
