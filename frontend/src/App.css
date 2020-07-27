@@ -164,6 +164,19 @@ input:focus{
   margin-left: 2rem;
 }
 
+.signature-row{
+  padding-top: 2rem;
+}
+
+.mainlink{
+  border-bottom: dotted 2px #404040;
+  color: #404040;
+}
+
+.mainlink:hover{
+  text-decoration: none;
+}
+
 
 .App-header {
   background-color: #282c34;

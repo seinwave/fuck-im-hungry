@@ -78,6 +78,14 @@ class Chatbot extends Component {
                     this.unSuccess();
                 }
 
+                if (msg.text.text[0].includes('Ah, I see.')) {
+                    this.emotionHandler(0);
+                }
+
+                if (msg.text.text[0].includes('significant') || msg.text.text[0].includes('Victory!')){
+                    this.aSuccess();
+                }
+
                 // delay in next message is proportional to the current message's length
                 await this.resolveAfterXSeconds(this.state.messageLength);
                 this.setState({messageLength: msg.text.text[0].length})
