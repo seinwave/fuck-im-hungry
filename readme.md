@@ -2,8 +2,7 @@
 
 [Cognitive-behavioral therapy (CBT)](https://www.mayoclinic.org/tests-procedures/cognitive-behavioral-therapy/about/pac-20384610) for binge-eating issues, delivered via a chatbot.
 
-
-<img align="center" src="https://github.com/seinwave/fuck-im-hungry/blob/master/fuck-im-hungry.gif" alt="Bingebot in action">
+<span style="display:block;text-align:center">![Bingebot in Action](fuck-im-hungry.gif)</span>
 
 
 ## Rationale 
