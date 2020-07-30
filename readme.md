@@ -39,7 +39,10 @@ This [meta-analysis](https://onlinelibrary.wiley.com/doi/abs/10.1002/eat.20696) 
 
 It's the gold standard, by which all other therapies are measured.
 
-(Though, crucially, it is *not* particularly effective at helping patients lose weight. That's a separate issue.)
+(Crucially, it is *not* particularly effective at helping patients lose weight. That's a separate issue.)
+
+[Some](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6914274/) [recent](https://ajp.psychiatryonline.org/doi/full/10.1176/appi.ajp.2019.19121256) [clinical trials](https://pubmed.ncbi.nlm.nih.gov/28960384/) even support *smart-phone based* CBT, as an effective intervention for binge-eating behaviors. Though there are some [questions](https://ajp.psychiatryonline.org/doi/full/10.1176/appi.ajp.2019.19121256) about how these studies have been designed. 
+
 
 ### Why a chatbot?
 
@@ -63,23 +66,45 @@ CBT comes with homework. Homework assignments are usually [worksheets](https://w
 
 Nothing wrong with that. People get a lot of value from them. I certainly have. 
 
-But, worksheets are also inert. They can be a little boring, or disengaging. If you're trying to battle a powerful, sensual urge to eat, there's a risk that a worksheet might not be able to hold your attention.
+But, worksheets are also inert. They can be a little boring, or disengaging. If you're trying to battle a powerful urge to eat, a worksheet might not be able to hold your attention.
 
-A chatbot is different. It invites interaction. A little bit of play, even. And the ten minutes you spend messing around with the Bingebot are five minutes that you're *not* binge-eating. 
+A chatbot is different. It invites interaction. A little bit of play, even. And the ten minutes you spend messing around with the Bingebot are ten minutes that you're *not* binge-eating. 
 
-That can make all the difference! 
-
-Ten minutes, for some, may be just enough time for a binge-eating urge to peak, and pass. 
+That can make all the difference! Ten minutes may be just enough time for a binge-eating urge to peak, and pass. 
 
 It's not just the CBT exercises that make the Bingebot useful. It's the 'stalling factor' that comes from interacting with the bot itself. 
 
 ## Execution
 
-### What does your stack look like?
+But enough whys and wherefores. Let's talk tech. 
 
-### Where'd you get your data?
+### What's your stack?
 
-### 
+The heart and soul of the Bingebot is a `DialogFlow` agent. 
+
+It handles user's inputs, spits appropriate outputs back.
+
+These outputs, in turn, are (mostly) handled by a `Node.js` server, which routes the DF agent's responses to a `React`-based frontend.
+
+But, `DialogFlow` has no "memory", per se. It can't hold user's responses from, say, six interactions previous. Which means it can't help the user judge if a binge-eating session was successful.
+
+So, a simple `MondoDB` database serves as the Bingebot's memory. It retains only anonymous, user-generated input — the `Before` score of binge-urge intensity; the `After` score; the `Choice of Intervention`; the `Date`; whether the `Intervention was Successful` and the `Unique Name` for the Bingebot session. 
+
+### Where'd you get your info?
+
+From James E. Mitchell's* ['CBT for Binge-Eating Disorders Self-Help Manual'](https://www.naadac.org/assets/2416/mitchell-cbt-for-bed-self-help-manual.pdf). Generously made available by [NAADAC, the Association for Addiction Professionals](https://www.naadac.org/about). (That's the proper name of the organization — acronym + subtitle. A little confusing, if you ask me.)
+
+* **Note:** This is not — I repeat, NOT — the same [James E. Mitchell](https://en.wikipedia.org/wiki/James_Elmer_Mitchell#Work_as_a_CIA_contractor_on_interrogation_practices) who did all that waterboarding for the CIA!
+
+## Wrapping up 
+
+That's about all I can think to tell you about the development process for the Bingebot.
+
+If you have any questions / feedback, hit up the email address in my GH profile.
+
+Thanks for reading!
+
+
 
 
 
