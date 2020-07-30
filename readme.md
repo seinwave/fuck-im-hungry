@@ -90,9 +90,21 @@ But, `DialogFlow` has no "memory", per se. It can't hold user's responses from, 
 
 So, a simple `MondoDB` database serves as the Bingebot's memory. It retains only anonymous, user-generated input — the `Before` score of binge-urge intensity; the `After` score; the `Choice of Intervention`; the `Date`; whether the `Intervention was Successful` and the `Unique Name` for the Bingebot session. 
 
+Like so: 
+<p align = "center">
+<img alt = "MongoDB" src = "documentation-assets/db-shot.png">
+</p>
+
+
 ### Where'd you get your info?
 
 From James E. Mitchell's* ['CBT for Binge-Eating Disorders Self-Help Manual'](https://www.naadac.org/assets/2416/mitchell-cbt-for-bed-self-help-manual.pdf). Generously made available by [NAADAC, the Association for Addiction Professionals](https://www.naadac.org/about). (That's the proper name of the organization — acronym + subtitle. A little confusing, if you ask me.)
+
+<p align = "center">
+<img alt = "Mitchell's binge-eating disorder book" src = "documentation-assets/mitchell-book.png">
+</p>
+
+Dude literally wrote the book on the subject. 
 
 **Note:** *This is not — I repeat, NOT — the same [James E. Mitchell](https://en.wikipedia.org/wiki/James_Elmer_Mitchell#Work_as_a_CIA_contractor_on_interrogation_practices) who did all that waterboarding for the CIA!*
 
