@@ -13,7 +13,7 @@
 
 Many people struggle with binge-eating. It's a problem I wrestle with, myself. 
 
-I thought a web-based intervention might be helpful for three reasons.
+I thought a web-based intervention might be helpful for two reasons.
 
 1. **It's a discrete behavior.**
 
@@ -28,8 +28,6 @@ How do you tell if a person is 'over' the emotional issues behind their binge-ea
 How do you tell if a person avoided a binge-eating episode? That's, uh, a much cheaper question. 
 
 Did they binge eat, or did they not? Easy to tell if an intervention worked. 
-
-3. **Butt butt butt butt butt** 
 
 ### Why CBT?
 
@@ -94,7 +92,7 @@ So, a simple `MondoDB` database serves as the Bingebot's memory. It retains only
 
 From James E. Mitchell's* ['CBT for Binge-Eating Disorders Self-Help Manual'](https://www.naadac.org/assets/2416/mitchell-cbt-for-bed-self-help-manual.pdf). Generously made available by [NAADAC, the Association for Addiction Professionals](https://www.naadac.org/about). (That's the proper name of the organization — acronym + subtitle. A little confusing, if you ask me.)
 
-* **Note:** This is not — I repeat, NOT — the same [James E. Mitchell](https://en.wikipedia.org/wiki/James_Elmer_Mitchell#Work_as_a_CIA_contractor_on_interrogation_practices) who did all that waterboarding for the CIA!
+**Note:** *This is not — I repeat, NOT — the same [James E. Mitchell](https://en.wikipedia.org/wiki/James_Elmer_Mitchell#Work_as_a_CIA_contractor_on_interrogation_practices) who did all that waterboarding for the CIA!*
 
 ## Wrapping up 
 
