@@ -152,7 +152,7 @@ This means a little bit of tedious services set-up.
 <img alt = "Connecting service account" src = "documentation-assets/df-connection.png">
 </p>
 
-- Then, you'll use the DialogFlow UI to import the Bingebot agent ZIP file. (Found in the `dialog-flow agent` folder.)
+- Then, you'll use the DialogFlow UI to import the Bingebot agent ZIP file. (Found in the `dialog-flow agent` folder in this repo.)
 
 
 
