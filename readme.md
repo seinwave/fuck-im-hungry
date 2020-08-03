@@ -131,7 +131,7 @@ Which means you'll need to GET some ENV variables.
 This means a little bit of tedious services set-up. 
 
 ### Google / DialogFlow
-- Craete a new project on the [Google Cloud Platform](https://cloud.google.com/).
+- Create a new project on the [Google Cloud Platform](https://cloud.google.com/).
 - To that project, add a new service account, with DialogFlow client permissions. Like so: 
 <p align = "center">
 <img alt = "Adding permissions" src = "documentation-assets/service-account.png">
