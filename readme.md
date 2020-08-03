@@ -108,13 +108,40 @@ Dude literally wrote the book on the subject.
 
 **Note:** *This is not — I repeat, NOT — the same [James E. Mitchell](https://en.wikipedia.org/wiki/James_Elmer_Mitchell#Work_as_a_CIA_contractor_on_interrogation_practices) who did all that waterboarding for the CIA!*
 
-## Wrapping up 
+## Clone this app!
 
-That's about all I can think to tell you about the development process for the Bingebot.
+If you have ideas to improve the Bingebot, by all means, fork the repo.
 
-If you have any questions / feedback, hit up the email address in my GH profile.
+If you want to work with a local copy, clone this repo to your home machine. Then make sure to install the following dependencies (`npm install` / `yarn add` should work for all of them):
 
-Thanks for reading!
+- compromise
+- compromise-numbers
+- body-parser
+- concurrently
+- dialogflow
+- dialogflow-fulfillment
+- express
+- mongoose
+
+You'll also need to configure your ENV variables to make this work.
+
+This means a little bit of tedious services set-up. 
+
+### Google / DialogFlow
+- Craete a new project on the Google Cloud Platform.
+- To that project, add a new service account, with DialogFlow client permissions.
+<p align = "center">
+<img alt = "Adding permissions" src = "documentation-assets/service-account.png">
+</p>
+- Head to DialogFlow, and create a new agent.
+- Connect your DialogFlow agent to your services account.
+<p align = "center">
+<img alt = "Connecting service account" src = "documentation-assets/df-connection.png">
+</p>
+- Then, you'll use the DialogFlow UI to import the Bingebot agent ZIP file. 
+
+
+
 
 
 
