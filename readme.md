@@ -114,8 +114,9 @@ If you have ideas to improve the Bingebot, by all means, fork the repo.
 
 If you want to work with a local copy, clone this repo to your home machine. Then make sure to install the following dependencies (`npm install` / `yarn add` should work for all of them):
 
-- compromise
-- compromise-numbers
+- [compromise](https://github.com/spencermountain/compromise)
+    - And its extension, compromise-numbers 
+    - For capturing user input that doesn't *quite* fit the mold
 - body-parser
 - concurrently
 - dialogflow
@@ -125,20 +126,48 @@ If you want to work with a local copy, clone this repo to your home machine. The
 
 You'll also need to configure your ENV variables to make this work.
 
+Which means you'll need to GET some ENV variables. 
+
 This means a little bit of tedious services set-up. 
 
 ### Google / DialogFlow
-- Craete a new project on the Google Cloud Platform.
-- To that project, add a new service account, with DialogFlow client permissions.
+- Craete a new project on the [Google Cloud Platform](https://cloud.google.com/).
+- To that project, add a new service account, with DialogFlow client permissions. Like so: 
 <p align = "center">
 <img alt = "Adding permissions" src = "documentation-assets/service-account.png">
 </p>
-- Head to DialogFlow, and create a new agent.
-- Connect your DialogFlow agent to your services account.
+
+- **IMPORTANT** When you create that account, make sure to create a *new private key* (as a JSON) to go along with it.
+    - Then, once you've saved the key to a directory on your machine, you will need to use the command-line to *export* the key to Google. 
+    - Navigate your CLI to the Bingebot's root directory. Then type in the following command:
+
+    ```
+    export GOOGLE_APPLICATION_CREDENTIALS=/path_to_your_JSON_key/key-file.json
+    ```
+    - Your API will not be able to communicate with DialogFlow without this! (I wasted a lot of time not knowing this. I'm trying to spare you some pain.)
+
+- Head to [DialogFlow](dialogflow.cloud.google.com/), and create a new agent.
+- Connect your DialogFlow agent to your services account. Like so: 
 <p align = "center">
 <img alt = "Connecting service account" src = "documentation-assets/df-connection.png">
 </p>
+
 - Then, you'll use the DialogFlow UI to import the Bingebot agent ZIP file. 
+
+
+
+### MongoDB
+- Head to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas), and create an account. (Don't worry it's free).
+- Create a new Cluster
+- Hit "Connect", seen here:
+<p align = "center">
+<img alt = "MongoDB connection" src = "documentation-assets/mongo.png">
+</p>
+
+- And choose "Connect Using MongoDB compass" to get your Mongo URI string. 
+- (Or, of course, you can use the DB of your choice.)
+
+
 
 
 
