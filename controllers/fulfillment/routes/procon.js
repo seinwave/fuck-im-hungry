@@ -1,16 +1,13 @@
-const { WebhookClient } = require('dialogflow-fulfillment');
-const ev = require('./eval')
-const eq = require('../event-query')
+const { WebhookClient } = require("dialogflow-fulfillment");
+const ev = require("./eval");
+const eq = require("../event-query");
 
 procon = (agent) => {
-
-    
-    agent.consoleMessages.map(i => {
-         agent.add(i.text);        
-    })
-    
-}
+  agent.consoleMessages.map((i) => {
+    agent.add(i.text);
+  });
+};
 
 module.exports = {
-    procon
-}
+  procon,
+};

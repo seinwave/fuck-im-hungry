@@ -1,15 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const cravingsSchema = new Schema({
-    craving: String,
-    name: String,
-    scoreBefore: Number,
-    scoreAfter: Number,
-    intervention: String,
-    success: String,
-    date: Date
-
+  craving: String,
+  name: String,
+  scoreBefore: Number,
+  scoreAfter: Number,
+  intervention: String,
+  success: String,
+  date: Date,
 });
 
-mongoose.model('cravings', cravingsSchema, 'cravings')
+mongoose.model("cravings", cravingsSchema, "cravings");
