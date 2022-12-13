@@ -26,7 +26,7 @@
     "cors": "^2.8.5",
     "dialogflow": "^1.2.0",
     "dialogflow-fulfillment": "^0.6.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mongoose": "^5.9.21",
     "nodemon": "^2.0.4"
   }
