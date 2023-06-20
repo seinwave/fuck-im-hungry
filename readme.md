@@ -1,8 +1,10 @@
 # Fuck, I'm Hungry. (Or, the Bingebot)
 
+###  UPDATE JUNE 2023: This project is DEPRECATED -- DialogFlow just ain't want it used to be
+
 [Cognitive-behavioral therapy (CBT)](https://www.mayoclinic.org/tests-procedures/cognitive-behavioral-therapy/about/pac-20384610) for binge-eating issues, delivered via a chatbot.
 
-Give it a whirl [here](). [**UPDATE JUNE 2023:** This project is DEPRECATED -- DialogFlow just ain't want it used to be]
+Give it a whirl [here]().
 
 <p align = "center">
 <img alt = "Bingebot in action" src = "documentation-assets/fuck-im-hungry.gif">
